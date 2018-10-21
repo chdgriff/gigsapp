@@ -1,6 +1,6 @@
 Gigs: A web app 
 
-An online plaform that connects gigs employers and workers.
+An online platform that connects gigs employers and workers.
 Gigs employers and workers have to setup their profiles to build their reputation and trustfulness.
 Workers can post review and rate their employers and vice versa.
 
