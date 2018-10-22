@@ -1,4 +1,6 @@
-Gigs: A web app 
+Gigs: A web app
+
+This is from a push
 
 An online platform that connects gigs employers and workers.
 Gigs employers and workers have to setup their profiles to build their reputation and trustfulness.
@@ -13,4 +15,3 @@ Why this matter?
 + Employers can build good profolio so they can hire people easier.
 + Workers have less protection working on Gigs.
 + Workers can report scam and help each other to avoid being scammed.
-
