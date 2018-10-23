@@ -1,0 +1,9 @@
+<h3><%= link_to 'Home', root_path %></h3>
+
+<% if user_signed_in? %>
+	<%= link_to 'My Account', user_account_path(@user) %>
+<% end %>
+
+<p>Name: <%= @user.id if @user.id %></p>
+<p>Email: <%= @user.email if @user.email %></p>
+<p>Email: <%= @user.created_at if @user.created_at %></p>
