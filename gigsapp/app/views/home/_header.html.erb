@@ -1,17 +1,30 @@
-<div class="container">
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Logo</a>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <%= link_to "Logo", root_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Posts</a>
+    <ul class="nav navbar-nav ml-auto">
+      <%= link_to "Home", root_path, class: "nav-item nav-link" %>
+      <%= link_to "Posts", posts_path, class: "nav-item nav-link" %>
+
       <a class="nav-item nav-link" href="#">About</a>
-      <a class="nav-item nav-link" href="#">Login</a>
-      <a class="nav-item nav-link" href="#">Sign up</a>
-    </div>
+
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>          
+      </li>
+      <li>
+        <%= link_to 'My Account', edit_user_registration_path, class: "nav-item nav-link" %>
+      </li>  
+    <% else %>
+        <li>
+          <%= link_to 'Login', new_user_session_path, class: "nav-item nav-link" %>  
+        </li>
+          <li>
+          <%= link_to 'Sign up', new_user_registration_path, class: "nav-item nav-link" %>  
+        </li>
+    <% end %>
+    </ul>
   </div>
 </nav>
-</div>

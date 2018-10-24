@@ -1,24 +1,12 @@
-<h1>Gigs Home Page</h1>
+<div class="jumbotron">
+    <h2>Gigs | Connects Employers and Employees</h2>
+    <p>Are you ready to become the next Giggler?</p>
+  <%= link_to posts_path do %>
+    	<button type="button" class="btn btn-warning btn-lg">I am hiring!</button>
+  <% end %>
 
-<h3>About/Project Abstract/Slogan</h3>
+  <%= link_to posts_path do %>
+    	<button type="button" class="btn btn-primary btn-lg">I am looking for gigs!</button>
+  <% end %>
 
-<%= link_to posts_path do %>
-  	<button type="button" class="btn btn-warning btn-lg">I am hiring!</button>
-<% end %>
-
-<%= link_to posts_path do %>
-  	<button type="button" class="btn btn-primary btn-lg">I am looking for gigs!</button>
-<% end %>
-
-<% if user_signed_in? %>
-  <li>
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to 'Login', new_user_session_path %>  
-  </li>
-    <li>
-  <%= link_to 'Sign up', new_user_registration_path %>  
-  </li>
-<% end %>
+</div>
