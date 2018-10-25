@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :posts
+  resources :profile
   get 'home', :to => "home#index"
   root :to => "home#index"
 
