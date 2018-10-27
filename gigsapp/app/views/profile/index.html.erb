@@ -1,1 +1,94 @@
-<h1> This is the Profile page</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Profile</title>
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/home.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/about.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+
+    <!-- Page Content -->
+
+      <!-- Page Heading/Breadcrumbs -->
+
+<div class="container">
+  <div class="jumbotron" style="margin-top: 30px;">
+
+    <div class="container" style="margin-bottom: 20px;margin-top: 30px;">
+      <div class="row">
+        <div class="col-lg-4" style="margin-right: 40px;">
+          <img class="img-fluid img-profile rounded-circle" src="images/profile.jpg" alt="">
+        </div>
+        <div class="col-lg-6" style="text-align: left;">
+          <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb">First Name Last Name</h4>
+          <img class="img-fluid img-profile rounded-circle" src="images/baseline_location_on_black_18dp.png" alt=""> Location
+          
+          <style>
+          .checked {
+              color: orange;
+          }
+          </style>
+
+          <h5 style="margin-top: 30px;">Rating:</h5>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+
+          <div style="margin-top: 30px;">
+          <img class="img-fluid img-profile rounded-circle" src="images/outline_mail_outline_black_18dp.png" alt="">EMAIL
+
+
+          <hr class="featurette-divider">
+		<div class="col-lg-10" style="text-align: right;">
+         <button id= jobs class="jobs">Past Jobs</button>
+     	</div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div id="pastJobData" class="modal">
+  <div class="modal-content">
+    <p>Jobs comming soon</p>
+  </div>
+
+</div>
+</div>     
+</div>
+<script type="text/javascript">
+//set variables 
+var modal = document.getElementById('pastJobData');
+var but = document.getElementById("jobs");
+
+// open modal
+but.onclick = function() {
+    modal.style.display = "block";
+}
+// close modal
+window.onclick = function(event) {
+    if (event.target != but) {
+        modal.style.display = "none";
+    }
+}
+</script>
+    <!-- Bootstrap -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
