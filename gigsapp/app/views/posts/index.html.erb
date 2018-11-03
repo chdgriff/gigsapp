@@ -5,11 +5,16 @@
 
   <h1>Gigs</h1>
 
+  <%= form_tag posts_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
+
   <%= link_to 'New Post', new_post_path %>
 
   <div class = "row">
 
-<table>
+<table class="ui fixed single line sortable celled table">
   <thead>
     <tr>
       <th>Title</th>

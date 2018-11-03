@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.where(["description LIKE ?","%#{params[:search]}%"])
   end
 
   # GET /posts/1
