@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Picture</th>
       <th>Title</th>
       <th>Body</th>
       <th>Location</th>
@@ -16,17 +17,20 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
+        <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= post.location %></td>
         <td><%= post.rate %></td>
         <td><%= link_to 'Show', post %></td>
+
         <% if user_signed_in? %>
           <% if current_user.id == post.user_id  %>
             <td><%= link_to 'Edit', edit_post_path(post) %></td>
             <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         <% end %>
+
       </tr>
     <% end %>
   </tbody>
