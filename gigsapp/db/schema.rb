@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_175937) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.text "body"
+    t.text "description"
     t.string "location"
     t.float "rate"
     t.datetime "created_at", null: false
