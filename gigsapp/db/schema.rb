@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2018_11_05_002835) do
-=======
 ActiveRecord::Schema.define(version: 2018_10_26_032843) do
->>>>>>> profileruby
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -24,13 +20,10 @@ ActiveRecord::Schema.define(version: 2018_10_26_032843) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-<<<<<<< HEAD
     t.string "asset_file_name"
     t.string "asset_content_type"
     t.integer "asset_file_size"
     t.datetime "asset_updated_at"
-=======
->>>>>>> profileruby
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
