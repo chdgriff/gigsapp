@@ -1,4 +1,3 @@
-<h1> This is the Profile page</h1>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +35,7 @@
         </div>
     	</div>
         <div class="col-lg-6" style="text-align: left;">
-          <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.find(1)%> <%= @user.find(1) %></h4>
+          <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.find(1).first_name%> <%= @user.find(1).last_name %></h4>
           <img class="img-fluid img-profile rounded-circle" src="images/baseline_location_on_black_18dp.png" alt=""> Location
 
           <style>
@@ -49,7 +48,7 @@
           <b><%= @user.find(1) %> "/ 10" </b>
 
           <div style="margin-top: 30px;">
-          <img class="img-fluid img-profile rounded-circle" src="images/outline_mail_outline_black_18dp.png" alt=""><%= @user.find(1) %>
+          <img class="img-fluid img-profile rounded-circle" src="images/outline_mail_outline_black_18dp.png" alt=""><%= @user.find(1).email %>
 
 
           <hr class="featurette-divider">
@@ -62,7 +61,7 @@
      	<div class="row">
       	<div class="col-lg-10" style="text-align: left;">
       		<h2> Bio </h2>
-      		<b><%= @user.find(1) %></b>
+      		<b><%= @user.find(1).bio %></b>
    		</div>
         </div>
         </div>
