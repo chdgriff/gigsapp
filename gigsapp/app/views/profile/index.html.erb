@@ -1,1 +1,140 @@
+<<<<<<< HEAD
 <h1> This is the Profile page</h1>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+
+    <!-- Page Content -->
+
+      <!-- Page Heading/Breadcrumbs -->
+
+<div class="container">
+  <div class="jumbotron" style="margin-top: 30px">
+
+    <div class="container" style="margin-bottom: 20px;margin-top: 30px;">
+    	<div class ="row">
+    	 <div class="col-lg-10" style="text-align: right;">
+        <button id= editProfile class="jobs" > edit profile </button>
+
+   		 </div>
+   		</div>
+      <div class="row">
+        <div class="col-lg-4" style="margin-right: 40px;">
+        	<div class="row">
+          <img class="img-fluid img-profile rounded-circle" src="images/profile.jpg" alt="rss feed">
+        </div>
+        <div class="row">
+        	 <img class="img-fluid img-profile rounded-circle" src="images/profile.jpg" alt="linked in">
+        </div>
+    	</div>
+        <div class="col-lg-6" style="text-align: left;">
+          <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.find(1)%> <%= @user.find(1) %></h4>
+          <img class="img-fluid img-profile rounded-circle" src="images/baseline_location_on_black_18dp.png" alt=""> Location
+          
+          <style>
+          .checked {
+              color: orange;
+          }
+          </style>
+
+          <h5 style="margin-top: 30px;">Rating:</h5>
+          <b><%= @user.find(1) %> "/ 10" </b>
+
+          <div style="margin-top: 30px;">
+          <img class="img-fluid img-profile rounded-circle" src="images/outline_mail_outline_black_18dp.png" alt=""><%= @user.find(1) %>
+
+
+          <hr class="featurette-divider">
+		<!-- <div class="col-lg-10" style="text-align: right;">
+         <button id= jobs class="jobs">Past Jobs</button>
+     	</div>
+     	<div class="col-lg-10" style="text-align: right;">
+     	</div> -->
+
+     	<div class="row">
+      	<div class="col-lg-10" style="text-align: left;">
+      		<h2> Bio </h2>
+      		<b><%= @user.find(1) %></b>
+   		</div>
+        </div>
+        </div>
+        </div>
+
+    <!-- <div id="pastJobData" class="modal">
+  <div class="modal-content">
+    <p>Jobs comming soon</p>
+  </div> -->
+
+</div>
+</div>     
+</div>
+<script type="text/javascript">
+var stop = "4";
+for (var i =0; i<stop; i++){
+'<div class="jobCard" style="width: 18rem,margin-top;">'
+  '<div class="card-body">'
+    '<h5 class="card-title"><%@user.find(1)%></h5>'
+    '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>''
+    '<a href="#" class="btn btn-primary">link to somewhere </a>'
+  '</div>'
+'</div>'
+'</div>'
+}
+	</script>
+<!-- <div class="row">
+	<div class="col-lg-2">
+	</div>
+	<div class="col-lg-4">
+
+<div class="jobCard" style="width: 18rem,margin-top;">
+  <div class="card-body">
+    <h5 class="card-title"><%@user.find(1)%></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">link to somewhere</a>
+  </div>
+</div>
+</div>
+
+<div class="col-lg-4">
+	<div class="jobCard" style="width: 18rem, margin-top;">
+  <div class="card-body">
+    <h5 class="card-title"><%@user.find(1)%></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">link to somewhere</a>
+  </div>
+
+</div>
+</div>
+</div> -->
+<script type="text/javascript">
+//set variables 
+var modal = document.getElementById('pastJobData');
+var but = document.getElementById("jobs");
+
+// open modal
+but.onclick = function() {
+    modal.style.display = "block";
+}
+// close modal
+window.onclick = function(event) {
+    if (event.target != but) {
+        modal.style.display = "none";
+    }
+}
+</script>
+    <!-- Bootstrap -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+>>>>>>> profileruby

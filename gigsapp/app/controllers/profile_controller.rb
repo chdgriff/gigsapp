@@ -1,12 +1,16 @@
 class ProfileController < ApplicationController
 	def index
-		@users = User.all;
+		@user = User.all;
 	end
 	def new
 
 	end
 	def create
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> profileruby
 	end
 	def edit
 
