@@ -6,11 +6,7 @@ class ProfileController < ApplicationController
 
 	end
 	def create
-<<<<<<< HEAD
 
-=======
-
->>>>>>> profileruby
 	end
 	def edit
 
