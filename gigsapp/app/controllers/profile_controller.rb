@@ -1,15 +1,13 @@
 class ProfileController < ApplicationController
-	before_action :set_user, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-
 	def index
-		@users = User.all;
+		@user = User.all;
+		@currentUser = current_user.id
+		@posts = Post.all
 	end
 	def new
 
 	end
 	def create
-		@current_user = User.id 
 
 	end
 	def edit

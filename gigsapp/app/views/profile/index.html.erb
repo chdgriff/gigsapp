@@ -36,7 +36,7 @@
     	</div>
         <div class="col-lg-6" style="text-align: left;">
           <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.find(current_user.id).first_name%> <%= @user.find(current_user.id).last_name %></h4>
-          <img class="img-fluid img-profile rounded-circle" src="images/baseline_location_on_black_18dp.png" alt=""> Location
+          <img class="img-fluid img-profile rounded-circle" src="images/baseline_location_on_black_18dp.png" alt=""> <%= @user.find(current_user.id).city %>
 
           <style>
           .checked {
@@ -71,11 +71,39 @@
   <div class="modal-content">
     <p>Jobs comming soon</p>
   </div> -->
+</div>
+</div>
+</div>
+<h1>Past Jobs</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Location</th>
+      <th>Rate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+ <tbody>
+    <% @posts.each do |post| %>
+    <%if current_user.id == post.user_id %>
+      <tr>
+        <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
+        <td><%= post.title %></td>
+        <td><%= post.discritption %></td>
+        <td><%= post.location %></td>
+        <td><%= post.rate %></td>
+        <td><%= link_to 'Show', post %></td>
+       </tr>
+    <%end%>
+  </tbody>
+  <%end%>
+</table>
 </div>
-</div>
-</div>
-<div class="row">
+<!-- <div class="row">
 	<div class="col-lg-2">
 	</div>
 	<div class="col-lg-4">
@@ -97,25 +125,9 @@
     <a href="#" class="btn btn-primary">link to somewhere</a>
   </div>
 </div>
-</div>
-</div>
+</div> -->
 
-<script type="text/javascript">
-//set variables
-var modal = document.getElementById('pastJobData');
-var but = document.getElementById("jobs");
 
-// open modal
-but.onclick = function() {
-    modal.style.display = "block";
-}
-// close modal
-window.onclick = function(event) {
-    if (event.target != but) {
-        modal.style.display = "none";
-    }
-}
-</script>
     <!-- Bootstrap -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
