@@ -23,5 +23,10 @@
 <p>
 <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
 </p>
-<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%> |
+
+<% if user_signed_in? %>
+  <% if current_user.id == @post.user_id  %>
+    <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%>
+  <% end %>
+<% end %>
 <%= link_to 'Back', posts_path, class: 'btn btn-primary'%>
