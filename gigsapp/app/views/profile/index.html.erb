@@ -1,4 +1,3 @@
-<h1> This is the Profile page</h1>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +35,7 @@
         </div>
     	</div>
         <div class="col-lg-6" style="text-align: left;">
-          <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @users.find(1)%> <%= @users.find(1) %></h4>
+          <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.find(current_user.id).first_name%> <%= @user.find(current_user.id).last_name %></h4>
           <img class="img-fluid img-profile rounded-circle" src="images/baseline_location_on_black_18dp.png" alt=""> Location
 
           <style>
@@ -46,10 +45,10 @@
           </style>
 
           <h5 style="margin-top: 30px;">Rating:</h5>
-          <b><%= @users.find(1) %> "/ 10" </b>
+          <b><%= @user.find(current_user.id) %> "/ 10" </b>
 
           <div style="margin-top: 30px;">
-          <img class="img-fluid img-profile rounded-circle" src="images/outline_mail_outline_black_18dp.png" alt=""><%= @users.find(1) %>
+          <img class="img-fluid img-profile rounded-circle" src="images/outline_mail_outline_black_18dp.png" alt=""><%= @user.find(current_user.id).email %>
 
 
           <hr class="featurette-divider">
@@ -62,7 +61,7 @@
      	<div class="row">
       	<div class="col-lg-10" style="text-align: left;">
       		<h2> Bio </h2>
-      		<b><%= @users.find(1) %></b>
+      		<b><%= @user.find(current_user.id).bio %></b>
    		</div>
         </div>
         </div>
@@ -76,27 +75,14 @@
 </div>
 </div>
 </div>
-<script type="text/javascript">
-var stop = "4";
-for (var i =0; i<stop; i++){
-'<div class="jobCard" style="width: 18rem,margin-top;">'
-  '<div class="card-body">'
-    '<h5 class="card-title"><%@users.find(1)%></h5>'
-    '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>''
-    '<a href="#" class="btn btn-primary">link to somewhere </a>'
-  '</div>'
-'</div>'
-'</div>'
-}
-	</script>
-<!-- <div class="row">
+<div class="row">
 	<div class="col-lg-2">
 	</div>
 	<div class="col-lg-4">
 
 <div class="jobCard" style="width: 18rem,margin-top;">
   <div class="card-body">
-    <h5 class="card-title"><%@users.find(1)%></h5>
+    <h5 class="card-title">Job 1</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">link to somewhere</a>
   </div>
@@ -106,14 +92,14 @@ for (var i =0; i<stop; i++){
 <div class="col-lg-4">
 	<div class="jobCard" style="width: 18rem, margin-top;">
   <div class="card-body">
-    <h5 class="card-title"><%@users.find(1)%></h5>
+    <h5 class="card-title">Job 2</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">link to somewhere</a>
   </div>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div> -->
 <script type="text/javascript">
 //set variables
 var modal = document.getElementById('pastJobData');
