@@ -1,27 +1,52 @@
-  <form>
-    <div class="form-group col-8">
-      <input type="text" class="form-control form-control-lg" name="title" placeholder="Job Title">
+<%= form_with(model: post, local: true, multipart: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
-    <div class="form-group col-8">
-      <label for="post_description">Description</label>
-      <textarea class="form-control" name ="text" placeholder="Job Description" rows="3"></textarea>
-    </div>
-    <div class="form-group col-8">
-      <label for="post_location">Location</label>
-      <input type="text" class="form-control" name="location" placeholder="Location">
-    </div>
-    <div class="form-group col-3">
-      <label for="post_rate">Rate</label>
-      <input type="text" class="form-control" name="rate" placeholder="Rate">
-    </div>
-    <div class="form-group col-8">
-        <label for="post_asset">Upload picture?</label>
-        <input type="file" class="form-control-file" name="asset">
+  <% end %>
+
+  <div class="container-fluid">
+    <div class="row field form-group col-8">
+      <%# <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control form-control-lg", placeholder: "Job Title" %>
     </div>
 
-    <div class="col">
-    <button type="submit" class="btn btn-success">Submit</button>
+    <div class="row field form-group col-8">
+      <%= form.label :description %>
+      <%= form.text_area :description, class: "form-control", placeholder: "Job Description"%>
     </div>
 
-  </form>
+    <div class="row field form-group col-5">
+      <%= form.label :location %>
+      <%= form.text_field :location, class: "form-control", placeholder: "Job Location"%>
+    </div>
+
+    <div class="row field form-group col-3">
+      <%= form.label :rate %>
+      <%= form.text_field :rate, class: "form-control", placeholder: "Job Rate"%>
+    </div>
+
+    <br>
+    <div class="row col">
+      <h5>Add a picture?</h5>
+      <%= form.file_field :asset, class: "form-control-file"%>
+      <br />
+      <% if form.object.asset? %>
+          <br />
+          <%= image_tag(form.object.asset.url(:small)) %><br />
+          <em>Currently uploaded image</em>
+      <% end %>
+    </div>
+    <br />
+
+    <div class="row actions col">
+      <%= form.submit "Add Gig", class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>
