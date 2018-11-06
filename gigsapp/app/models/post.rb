@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  belongs_to :user
   has_attached_file :asset, styles: {
     medium: '300x300>',
     small: '140x140>',

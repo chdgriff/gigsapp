@@ -1,6 +1,8 @@
 class ProfileController < ApplicationController
 	def index
-
+		@user = User.all;
+		@currentUser = current_user.id
+		@posts = Post.all
 	end
 	def new
 
