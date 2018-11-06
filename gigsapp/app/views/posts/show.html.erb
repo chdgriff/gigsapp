@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Job Title:</strong>
   <%= @post.title %>
 </p>
 
@@ -20,5 +20,5 @@
   <%= @post.rate %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%> |
+<%= link_to 'Back', posts_path, class: 'btn btn-primary'%>

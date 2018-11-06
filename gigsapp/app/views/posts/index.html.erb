@@ -4,8 +4,7 @@
   <p id="notice"><%= notice %></p>
 
   <h1>Gigs</h1>
-
-  <%= link_to 'New Post', new_post_path %>
+  <%= link_to 'New Post', new_post_path, class: 'btn btn-success' %>
 
 <table class ="table table-striped table-hover">
   <thead>
@@ -24,11 +23,10 @@
         <td><%= post.description %></td>
         <td><%= post.location %></td>
         <td><%= post.rate %></td>
-        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Read More', post, class: 'btn btn-info' %>
         <% if user_signed_in? %>
           <% if current_user.id == post.user_id  %>
-            <td><%= link_to 'Edit', edit_post_path(post) %></td>
-            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary'%>
           <% end %>
         <% end %>
       </tr>

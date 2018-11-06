@@ -2,5 +2,7 @@
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
+<%= link_to 'Delete', @post, class: 'btn btn-danger',
+    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<%= link_to 'Save', @post, class: 'btn btn-success' %> |
 <%= link_to 'Back', posts_path %>
