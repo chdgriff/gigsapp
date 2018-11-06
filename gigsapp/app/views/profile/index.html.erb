@@ -36,7 +36,7 @@
     	</div>
         <div class="col-lg-6" style="text-align: left;">
           <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.find(current_user.id).first_name%> <%= @user.find(current_user.id).last_name %></h4>
-          <img class="img-fluid img-profile rounded-circle" src="images/baseline_location_on_black_18dp.png" alt=""> Location
+          <img class="img-fluid img-profile rounded-circle" src="images/baseline_location_on_black_18dp.png" alt=""> <%= @user.find(current_user.id).city %>
 
           <style>
           .checked {
@@ -100,22 +100,6 @@
 </div>
 </div>
 
-<script type="text/javascript">
-//set variables
-var modal = document.getElementById('pastJobData');
-var but = document.getElementById("jobs");
-
-// open modal
-but.onclick = function() {
-    modal.style.display = "block";
-}
-// close modal
-window.onclick = function(event) {
-    if (event.target != but) {
-        modal.style.display = "none";
-    }
-}
-</script>
     <!-- Bootstrap -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
