@@ -10,16 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_191538) do
+ActiveRecord::Schema.define(version: 2018_11_04_205315) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.text "description"
+    t.text "body"
     t.string "location"
     t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "asset_file_name"
+    t.string "asset_content_type"
+    t.integer "asset_file_size"
+    t.datetime "asset_updated_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

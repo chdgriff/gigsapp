@@ -20,5 +20,8 @@
   <%= @post.rate %>
 </p>
 
+<p>
+<%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
+</p>
 <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%> |
 <%= link_to 'Back', posts_path, class: 'btn btn-primary'%>

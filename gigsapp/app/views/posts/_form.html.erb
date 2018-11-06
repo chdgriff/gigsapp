@@ -1,6 +1,50 @@
-<form>
-  <div class="form-group">
-    <label>Job Title</label>
-    <input type="text" class="form-control">
+<%= form_with(model: post, local: true, multipart: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
   </div>
-</form>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rate %>
+    <%= form.text_field :rate %>
+  </div>
+
+  <br>
+  <div>
+    <h5>Add a picture?</h5>
+    <%= form.file_field :asset %>
+    <br />
+    <% if form.object.asset? %>
+        <br />
+        <%= image_tag(form.object.asset.url(:small)) %><br />
+        <em>Currently uploaded image</em>
+    <% end %>
+  </div>
+  <br />
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
