@@ -1,50 +1,27 @@
-<%= form_with(model: post, local: true, multipart: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <form>
+    <div class="form-group col-8">
+      <input type="text" class="form-control form-control-lg" name="title" placeholder="Job Title">
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
     </div>
-  <% end %>
+    <div class="form-group col-8">
+      <label for="post_description">Description</label>
+      <textarea class="form-control" name ="text" placeholder="Job Description" rows="3"></textarea>
+    </div>
+    <div class="form-group col-8">
+      <label for="post_location">Location</label>
+      <input type="text" class="form-control" name="location" placeholder="Location">
+    </div>
+    <div class="form-group col-3">
+      <label for="post_rate">Rate</label>
+      <input type="text" class="form-control" name="rate" placeholder="Rate">
+    </div>
+    <div class="form-group col-8">
+        <label for="post_asset">Upload picture?</label>
+        <input type="file" class="form-control-file" name="asset">
+    </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <div class="col">
+    <button type="submit" class="btn btn-success">Submit</button>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rate %>
-    <%= form.text_field :rate %>
-  </div>
-
-  <br>
-  <div>
-    <h5>Add a picture?</h5>
-    <%= form.file_field :asset %>
-    <br />
-    <% if form.object.asset? %>
-        <br />
-        <%= image_tag(form.object.asset.url(:small)) %><br />
-        <em>Currently uploaded image</em>
-    <% end %>
-  </div>
-  <br />
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  </form>
