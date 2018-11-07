@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
+  validates :title, presence: true, length: {minimum: 3}
+
   has_attached_file :asset, styles: {
     medium: '300x300>',
     small: '140x140>',
