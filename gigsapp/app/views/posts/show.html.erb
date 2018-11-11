@@ -21,6 +21,10 @@
 </p>
 
 <p>
+  <%= link_to "Employer Profile", user_path(@post.user) %>
+</p>
+
+<p>
 <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
 </p>
 
