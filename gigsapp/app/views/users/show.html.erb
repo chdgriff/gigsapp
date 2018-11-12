@@ -29,27 +29,23 @@
       <div class="row">
         <div class="col-lg-4" style="margin-right: 40px;">
         	<div class="row">
-          <img class="img-fluid img-profile rounded-circle" src="images/profile.jpg" alt="rss feed">
+          <%= image_tag("profile.jpg", :alt => "profile") %>
         </div>
         <div class="row">
-        	 <img class="img-fluid img-profile rounded-circle" src="images/profile.jpg" alt="linked in">
+        	 <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), "http://www.google.com") %>
         </div>
     	</div>
         <div class="col-lg-6" style="text-align: left;">
           <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.first_name%> <%= @user.last_name %></h4>
-          <img class="img-fluid img-profile rounded-circle" src="images/baseline_location_on_black_18dp.png" alt=""> <%= @user.city %>
+          <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>
 
-          <style>
-          .checked {
-              color: orange;
-          }
-          </style>
+          
 
           <h5 style="margin-top: 30px;">Rating:</h5>
           <b><%= @user %> "/ 10" </b>
 
           <div style="margin-top: 30px;">
-          <img class="img-fluid img-profile rounded-circle" src="images/outline_mail_outline_black_18dp.png" alt=""><%= @user.email %>
+           <%= image_tag("outline_mail_outline_black_18dp.png", :alt => "profile")%><%= @user.email %>
 
 
           <hr class="featurette-divider">
@@ -75,9 +71,32 @@
 </div>
 </div>
 </div>
-<h1>Past Jobs</h1>
-
-
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Location</th>
+      <th>Rate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+ <tbody>
+    <% @posts.each do |post| %>
+    <%if current_user.id == post.user_id %>
+      <tr>
+        <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
+        <td><%= post.title %></td>
+        <td><%= post.description %></td>
+        <td><%= post.location %></td>
+        <td><%= post.rate %></td>
+        <td><%= link_to 'Show', post %></td>
+       </tr>
+    <%end%>
+  </tbody>
+  <%end%>
+</table>
 </div>
 <!-- <div class="row">
 	<div class="col-lg-2">
