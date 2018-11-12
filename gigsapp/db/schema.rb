@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_012913) do
+ActiveRecord::Schema.define(version: 2018_11_12_181155) do
+
+  create_table "job_applications", force: :cascade do |t|
+    t.float "ask_rate"
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
