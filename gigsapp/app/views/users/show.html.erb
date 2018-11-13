@@ -85,7 +85,7 @@
   </thead>
  <tbody>
     <% @posts.each do |post| %>
-    <%if current_user.id == post.user_id %>
+    <%if @user.id == post.user_id %>
       <tr>
         <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
         <td><%= post.title %></td>
