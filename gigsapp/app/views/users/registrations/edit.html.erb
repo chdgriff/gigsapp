@@ -1,4 +1,4 @@
-<div class="mx-auto" style="width: 80%;">
+  <div class="mx-auto" style="width: 80%;">
   <div class="container">
     <div class="jumbotron" style="margin-top: 30px;">
       <h1 class="font-weight-bold text-center" style="margin-bottom:50px;">Edit Profile</h1>
@@ -32,6 +32,15 @@
                 <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder:"e.g. Gig Master" %>
               </div>
             </div>
+
+            <%= form_for @user, url: users_path, html: { multipart: true } do |form| %>
+              <div class="form-group row">
+                <label for="profile_image" class="col-sm-2 col-form-label">Profile Image</label>
+                <div class="col-sm-10">
+                  <%= form.file_field :profile_image%>
+                </div>
+              </div>
+            <% end %>
 
             <div class="form-group row">
               <label for="Bio" class="col-sm-2 col-form-label">Bio</label>
