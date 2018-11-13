@@ -22,7 +22,6 @@
     <div class="container" style="margin-bottom: 20px;margin-top: 30px;">
     	<div class ="row">
     	 <div class="col-lg-10" style="text-align: right;">
-        <button id= editProfile class="jobs" > edit profile </button>
 
    		 </div>
    		</div>
@@ -39,7 +38,7 @@
           <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.first_name%> <%= @user.last_name %></h4>
           <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>
 
-          
+
 
           <h5 style="margin-top: 30px;">Rating:</h5>
           <b><%= @user %> "/ 10" </b>
@@ -84,7 +83,7 @@
   </thead>
  <tbody>
     <% @posts.each do |post| %>
-    <%if current_user.id == post.user_id %>
+    <%if @user.id == post.user_id %>
       <tr>
         <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
         <td><%= post.title %></td>
