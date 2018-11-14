@@ -31,7 +31,9 @@
           <%= image_tag("profile.jpg", :alt => "profile") %>
         </div>
         <div class="row">
-        	 <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), "http://www.google.com") %>
+           <div class="row" style="margin-top: 60px;">
+        	 <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), @user.linkedin) %>
+          </div>
         </div>
     	</div>
         <div class="col-lg-6" style="text-align: left;">
