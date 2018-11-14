@@ -2,7 +2,12 @@
   <p id="notice"><%= notice %></p>
 
   <h1>Gigs</h1>
-  <%= link_to 'New Post', new_post_path, class: 'btn btn-success' %>
+  <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
+
+  <%= form_tag posts_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
 
 <table class ="table table-striped table-hover">
   <thead>
@@ -12,22 +17,23 @@
       <th scope="col">Description</th>
       <th scope="col">Location</th>
       <th scope="col">Rate</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr class="table-row" >
+      <tr class="table-row">
       <tr>
         <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
         <td><%= post.title %></td>
         <td><%= post.description %></td>
         <td><%= post.location %></td>
         <td><%= post.rate %></td>
-        <td><%= link_to 'Read More', post, class: 'btn btn-info' %>
+        <td><%= link_to "Read More", post_path(post), class: "btn btn-info" %>
         <% if user_signed_in? %>
           <% if current_user.id == post.user_id  %>
-            <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary'%>
+            <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary"%>
           <% end %>
         <% end %>
       </tr>

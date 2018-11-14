@@ -21,22 +21,20 @@
     <div class="container" style="margin-bottom: 20px;margin-top: 30px;">
     	<div class ="row">
     	 <div class="col-lg-10" style="text-align: right;">
-        <button id= editProfile class="jobs" > edit profile </button>
-
    		 </div>
    		</div>
       <div class="row">
         <div class="col-lg-4" style="margin-right: 40px;">
         	<div class="row">
-          <img class="img-fluid img-profile rounded-circle" src="images/profile.jpg" alt="rss feed">
+            <%= image_tag("profile.jpg", :alt => "profile") %>
         </div>
-        <div class="row">
-        	 <img class="img-fluid img-profile rounded-circle" src="images/profile.jpg" alt="linked in">
+        <div class="row" style="margin-top: 60px;">
+            <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), @user.find(current_user.id)) %>
         </div>
     	</div>
         <div class="col-lg-6" style="text-align: left;">
           <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.find(current_user.id).first_name%> <%= @user.find(current_user.id).last_name %></h4>
-          <img class="img-fluid img-profile rounded-circle" src="images/baseline_location_on_black_18dp.png" alt=""> <%= @user.find(current_user.id).city %>
+            <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.find(current_user.id).city %>
 
           <style>
           .checked {
@@ -44,13 +42,11 @@
           }
           </style>
 
-          <h5 style="margin-top: 30px;">Rating:</h5>
-          <b><%= @user.find(current_user.id) %> "/ 10" </b>
+          <h5 style="margin-top: 30px;"> Average Rating:</h5>
+          <b><%= @user.find(current_user.id)%> "/ 10" </b>
 
           <div style="margin-top: 30px;">
-          <img class="img-fluid img-profile rounded-circle" src="images/outline_mail_outline_black_18dp.png" alt=""><%= @user.find(current_user.id).email %>
-
-
+              <%= image_tag("outline_mail_outline_black_18dp.png", :alt => "profile") %> <%= @user.find(current_user.id).email %>
           <hr class="featurette-divider">
 		<!-- <div class="col-lg-10" style="text-align: right;">
          <button id= jobs class="jobs">Past Jobs</button>
@@ -76,7 +72,7 @@
 </div>
 <h1>Past Jobs</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Picture</th>
