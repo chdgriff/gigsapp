@@ -28,6 +28,9 @@
 <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
 </p>
 
+<%= debug @post.id %>
+<%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+
 <% if user_signed_in? %>
   <% if current_user.id == @post.user_id  %>
     <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%>
