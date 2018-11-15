@@ -28,12 +28,32 @@
 <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
 </p>
 
-<%= debug @post.id %>
-<%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
 
 <% if user_signed_in? %>
   <% if current_user.id == @post.user_id  %>
     <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%>
   <% end %>
 <% end %>
+
+<% if user_signed_in? && current_user.id != @post.user_id %>
+<%# This post isn't belongs to this current user. %>
+    <% if @post.job_applications.count == 0 %>
+    <%# This post has no job_applications record yet. %>
+      <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+    <% else %>
+      <% @post.job_applications.each do |jobapp| %>
+        <%= debug jobapp.user_id %>
+
+        <% if jobapp.user_id == current_user.id %>
+          <%# Current user has applied this job before. %>
+          <%= link_to 'Your Application', job_application_path(jobapp), class: 'btn btn-success'%>
+        <% else %>
+          <%# Current user hasn't applied this job before. %>
+          <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+        <% end %>
+      <% end %>
+    <% end %>
+<% end %>
+
+
 <%= link_to 'Back', posts_path, class: 'btn btn-primary'%>
