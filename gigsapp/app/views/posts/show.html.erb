@@ -42,7 +42,6 @@
       <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
     <% else %>
       <% @post.job_applications.each do |jobapp| %>
-        <%= debug jobapp.user_id %>
 
         <% if jobapp.user_id == current_user.id %>
           <%# Current user has applied this job before. %>

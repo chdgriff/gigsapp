@@ -16,8 +16,7 @@
     <%= form.text_field :ask_rate, class: "form-control", placeholder: "Ask Rate"%>
   </div>
 
-  <%= debug @post.id %>
-  <%= form.text_field :post_id, :value => @post.id %>
+  <%= form.hidden_field :post_id, :value => @post.id %>
 
   <div class="actions">
     <%= form.submit "Submit", class: "btn btn-success" %>
