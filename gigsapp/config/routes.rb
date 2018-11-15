@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :job_applications
   devise_for :users
   resources :posts
   resources :profile
