@@ -1,12 +1,24 @@
-<div class="jumbotron">
-    <h2>Gigs | Connects Employers and Employees</h2>
-    <p>Are you ready to become the next Giggler?</p>
-  <%= link_to posts_path do %>
-    	<button type="button" class="btn btn-warning btn-lg">I am hiring!</button>
-  <% end %>
+<head>
 
-  <%= link_to posts_path do %>
-    	<button type="button" class="btn btn-primary btn-lg">I am looking for gigs!</button>
-  <% end %>
+  <title>Profile</title>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag "home" %>
+</head>
 
-</div>
+<body>
+
+  <div class="jumbotron">
+      <h2>Gigs | Connects Employers and Employees</h2>
+      <p>Are you ready to become the next Giggler?</p>
+    <%= link_to posts_path do %>
+      	<button type="button" class="btn btn-warning btn-lg">I am hiring!</button>
+    <% end %>
+
+    <%= link_to posts_path do %>
+      	<button type="button" class="btn btn-primary btn-lg">I am looking for gigs!</button>
+    <% end %>
+
+  </div>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
