@@ -23,6 +23,9 @@
               <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-item nav-link" %>
             </a>
             <a class="dropdown-item"
+              <%= link_to 'Applications', job_applications_path, class: "nav-item nav-link" %>
+            </a>
+            <a class="dropdown-item"
               <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
             </a>
           </div>
