@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   resources :job_applications
-  devise_for :users
-  resources :posts
-  resources :profile
-  resources :about
+  devise_for :users, :controllers => {registrations: "users/registrations"}
   resources :users
+  resources :posts
+  resources :about
   get 'home', :to => "home#index"
   root :to => "home#index"
 
