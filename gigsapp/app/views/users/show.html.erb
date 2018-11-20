@@ -58,6 +58,7 @@
       		<b><%= @user.bio %></b>
    		</div>
        <% if user_signed_in? %>
+          <% if current_user.id == @user.id  %>
            <div class="col-lg-10" style="text-align: left;">
             <hr class="featurette-divider">
              <h5> Private Data </h5>
@@ -65,6 +66,7 @@
              <%= image_tag("outline_mail_outline_black_18dp.png", :alt => "profile")%><%= @user.email %>
            </div>
           </div>
+          <%end%>
           <%end%>
         </div>
         </div>
