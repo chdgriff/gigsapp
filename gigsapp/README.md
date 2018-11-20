@@ -1,24 +1,17 @@
-# README
+Gigs: A web app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is from a push
 
-Things you may want to cover:
+An online platform that connects gigs employers and workers.
+Gigs employers and workers have to setup their profiles to build their reputation and trustfulness.
+Workers can post review and rate their employers and vice versa.
 
-* Ruby version
+How it works?
+Gig employers post a job including: duty, requirement, rate and etc...
+Workers: search for a gig and apply if they want to take the job.
+(pretty much like the gigs section on Craigslist)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Why this matter?
++ Employers can build good profolio so they can hire people easier.
++ Workers have less protection working on Gigs.
++ Workers can report scam and help each other to avoid being scammed.
