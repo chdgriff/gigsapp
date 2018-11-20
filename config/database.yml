@@ -20,3 +20,7 @@ test:
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: gigsapp_test
+
+production:
+  adapter: postgresql
+  database: gigsapp_production
