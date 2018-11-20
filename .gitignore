@@ -24,7 +24,10 @@
 /node_modules
 /yarn-error.log
 
-/public/assets
+# Ignore uploaded pictures
+/public/posts/assets
+/public/users/
+
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.

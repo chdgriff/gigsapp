@@ -28,19 +28,24 @@
       <div class="row">
         <div class="col-lg-4" style="margin-right: 40px;">
         	<div class="row">
-        <%= image_tag @user.profile_image.url(:medium)%>
+            <% if  @user.profile_image.blank? %>
+              <%= image_tag"default_profile.png" %>
+            <% else %>
+              <%= image_tag @user.profile_image.url(:medium)%>
+            <% end %>
         </div>
+
         <div class="row">
+          <% if !(@user.linkedin.blank?) %>
            <div class="row" style="margin-top: 60px;">
         	 <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), @user.linkedin) %>
           </div>
+          <% end %>
         </div>
     	</div>
         <div class="col-lg-6" style="text-align: left;">
           <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.first_name%> <%= @user.last_name %></h4>
           <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>
-          
-
 
           <h5 style="margin-top: 30px;">Rating:</h5>
           <b><%= @user %> "/ 10" </b>

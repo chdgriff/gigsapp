@@ -20,6 +20,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: gigsapp
+  pasword: password
 
 development:
   <<: *default
@@ -80,8 +82,4 @@ test:
 #
 production:
   <<: *default
-  database: d26b7oqooc8cip
-  username: wniydbsoxnfwwk
-  password: e816322f75619b0ddacbf36880978f0ed6d8848f21746c2cad88629d5c70de4e
-  host: ec2-50-19-249-121.compute-1.amazonaws.com
-  pool: 5
+  database: gigsapp_production
