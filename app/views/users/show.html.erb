@@ -29,7 +29,7 @@
         <div class="col-lg-4" style="margin-right: 40px;">
         	<div class="row">
             <% if  @user.profile_image.blank? %>
-              <%= image_tag"profile.jpg" %>
+              <%= image_tag"default_profile.png" %>
             <% else %>
               <%= image_tag @user.profile_image.url(:medium)%>
             <% end %>
