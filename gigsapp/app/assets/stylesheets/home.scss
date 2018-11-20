@@ -26,7 +26,7 @@
 }
 
 #mainNav .navbar-nav .nav-item:hover {
-  color: fade(white, 80%);
+  color:#000000;
   outline: none;
   background-color: transparent;
 }
@@ -41,22 +41,23 @@
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;
+    // background-color: #232323;
     background-color: transparent;
     -webkit-transition: background-color 0.3s ease-in-out;
     transition: background-color 0.3s ease-in-out;
   }
   #mainNav .navbar-brand {
     padding: .5rem 0;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(20, 20, 20, 0.5);
   }
   #mainNav .nav-link {
     -webkit-transition: none;
     transition: none;
     padding: 2rem 1.5rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(20, 20, 20, 0.5);
   }
   #mainNav .nav-link:hover {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(20, 20, 20, 0.75);
   }
   #mainNav .nav-link:active {
     color: white;
@@ -91,8 +92,8 @@
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.3)), color-stop(75%, rgba(22, 22, 22, 0.8)), to(#161616)), url("../img/bg-masthead.jpg");
-  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.8) 75%, #161616 100%), image-url('ucsc.jpg');
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.3)), color-stop(75%, rgba(22, 22, 22, 0.8)), to(#161616));
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%), image-url('ucsc.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -104,14 +105,14 @@
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
-  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
   -webkit-background-clip: text;
 }
 
 .gigshead h2 {
   max-width: 20rem;
   font-size: 1rem;
+  font-family: cursive;
 }
 
 @media (min-width: 768px) {
@@ -190,15 +191,20 @@
 .about-section {
   padding-top: 10rem;
   background: -webkit-gradient(linear, left top, left bottom, from(#161616), color-stop(75%, rgba(22, 22, 22, 0.9)), to(rgba(22, 22, 22, 0.8)));
-  background: linear-gradient(to bottom, #161616 0%, rgba(22, 22, 22, 0.9) 75%, rgba(22, 22, 22, 0.5) 100%), image-url('ucsc.jpg');;
+  background: linear-gradient(to bottom, #161616 0%, rgba(22, 22, 22, 0.9) 75%, rgba(22, 22, 22, 0.7) 100%), image-url('ucsc.jpg');;
 }
 
 .about-section p {
   margin-bottom: 5rem;
 }
 
+.about_background{
+  background-color: #EEEEEE;
+}
+
 .service_background{
-  background-color: #4f837f ;
+  background-color: #a0d6fc;
+  background: linear-gradient(45deg, #a0d6fc, #F0FF94);
 }
 
 // service section
@@ -208,13 +214,13 @@
 }
 
 section {
-  padding: 100px 0;
 }
 
 section h2.section-heading {
   font-size: 32px;
   margin-top: 0;
   margin-bottom: 15px;
+  font-family: cursive;
 }
 
 section h3.section-subheading {
