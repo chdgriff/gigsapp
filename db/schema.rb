@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_055921) do
+ActiveRecord::Schema.define(version: 2018_11_20_234930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_055921) do
     t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "asset_file_name"
     t.string "asset_content_type"
     t.integer "asset_file_size"
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 2018_11_20_055921) do
     t.string "profile_image_content_type"
     t.integer "profile_image_file_size"
     t.datetime "profile_image_updated_at"
-    t.string "linkedin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "posts", "users"
 end
