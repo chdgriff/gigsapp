@@ -22,11 +22,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: gigsapp
   pasword: password
-  host: localhost
 
 development:
   <<: *default
-  host: localhost
   database: gigsapp_development
 
   # The specified database role being used to connect to postgres.
@@ -85,7 +83,5 @@ test:
 #
 production:
   <<: *default
-  host: localhost
-  username: gigsapp
-  pasword: password
   database: gigsapp_production
+  password: <%= ENV['TESTAPP_DATABASE_PASSWORD'] %>
