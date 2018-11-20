@@ -21,10 +21,11 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: gigsapp
-  pasword: password
+
 
 development:
   <<: *default
+  pasword: password
   database: gigsapp_development
 
   # The specified database role being used to connect to postgres.
@@ -60,6 +61,7 @@ development:
 test:
   <<: *default
   host: localhost
+  pasword: password
   database: gigsapp_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -84,4 +86,4 @@ test:
 production:
   <<: *default
   database: gigsapp_production
-  password: <%= ENV['TESTAPP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['GIGSAPP_DATABASE_PASSWORD'] %>
