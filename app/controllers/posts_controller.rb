@@ -71,7 +71,10 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find_by(id: params[:id])
+      if @post == nil
+        redirect_to action: "index"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
