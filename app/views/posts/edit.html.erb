@@ -1,9 +1,9 @@
-<h1>Editing Post</h1>
-
+<div class="container jumbotron" style="margin-top: 30px">
+<h1>Edit Gig</h1>
 <%= render 'form', post: @post %>
 
-<br>
+<div class=mt-3>
 <%= link_to 'Delete', @post, class: 'btn btn-danger',
     method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', posts_path, class: "btn btn-primary"%>
-</br>
+</div>

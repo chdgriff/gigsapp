@@ -12,28 +12,32 @@
   <% end %>
 
   <div class="container-fluid">
-    <div class="row field form-group col-8">
+    <div class="row field form-group">
       <%# <%= form.label :title %>
       <%= form.text_field :title, class: "form-control form-control-lg", placeholder: "Job Title" %>
     </div>
 
-    <div class="row field form-group col-8">
+    <div class="row field form-group">
       <%= form.label :description %>
       <%= form.text_area :description, class: "form-control", placeholder: "Job Description"%>
     </div>
 
-    <div class="row field form-group col-5">
-      <%= form.label :location %>
-      <%= form.text_field :location, class: "form-control", placeholder: "Job Location"%>
+    <div class="row">
+      <div class="col-6 pl-0 form-group field">
+        <%= form.label :location %>
+        <%= form.text_field :location, class: "form-control", placeholder: "Job Location"%>
+      </div>
     </div>
 
-    <div class="row field form-group col-3">
-      <%= form.label :rate %>
-      <%= form.text_field :rate, class: "form-control", placeholder: "Job Rate"%>
+    <div class="row">
+      <div class="col-3 pl-0 form-group field">
+        <%= form.label :rate %>
+        <%= form.text_field :rate, class: "form-control", placeholder: "Job Rate"%>
+      </div>
     </div>
 
     <br>
-    <div class="row col">
+    <div class="row">
       <h5>Add a picture?</h5>
       <%= form.file_field :asset, class: "form-control-file"%>
       <br />
@@ -45,7 +49,7 @@
     </div>
     <br />
 
-    <div class="row actions col">
+    <div class="row actions">
       <%= form.submit "Save Gig", class: "btn btn-success" %>
     </div>
   </div>
