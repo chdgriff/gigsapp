@@ -30,10 +30,14 @@
         	<div class="row">
          <%= image_tag @user.profile_image.url(:medium)%>
         </div>
+
+
         <div class="row">
+          <% if @user.linkedin != "" %>
            <div class="row" style="margin-top: 60px;">
         	 <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), @user.linkedin) %>
           </div>
+          <% end %>
         </div>
     	</div>
         <div class="col-lg-6" style="text-align: left;">

@@ -7,7 +7,6 @@
           <%= devise_error_messages! %>
           <%= form_for @user, url: users_path, html: { multipart: true } do |form| %>
 
-
           <form>
             <div class="form-group row">
               <label for="Name" class="col-sm-2 col-form-label">Name</label>
@@ -130,7 +129,8 @@
           <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-              <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: "(leave blank if you don't want to change it)" %>
+              <%= f.password_field :password, autocomplete: "new-password",
+                  class: 'form-control', placeholder: "(leave blank if you don't want to change it)" %>
               <% if @minimum_password_length %>
                 <br />
                 <em><%= @minimum_password_length %> characters minimum</em>
@@ -148,20 +148,22 @@
           <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Current Password</label>
             <div class="col-sm-10">
-              <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control', placeholder: "(we need your current password to confirm your changes)" %>
+              <%= f.password_field :current_password, autocomplete: "current-password",
+                  class: 'form-control', placeholder: "(Enter current password to confirm your changes)" %>
             </div>
           </div>
 
           <div class="actions">
-            <%= f.submit "Update", class: "btn btn-primary" %>
+            <%= f.submit "Update", class: "btn btn-success"%>
           </div>
           </form>
 
 
-        <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+        <p><%= button_to "Cancel my account", registration_path(resource_name),
+               data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"%>
         </p>
 
-        <%= link_to "Back", :back %>
+        <%= link_to "Back", :back, class: "btn btn-default"%>
         <%= devise_error_messages! %>
 
     </div>
