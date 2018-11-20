@@ -214,6 +214,7 @@
 }
 
 section {
+    padding: 100px 100px;
 }
 
 section h2.section-heading {
@@ -236,4 +237,69 @@ section h3.section-subheading {
   section {
     padding: 100px 0;
   }
+}
+
+
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+}
+
+footer span.copyright {
+  font-size: 90%;
+  line-height: 40px;
+  text-transform: none;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+footer ul.quicklinks {
+  font-size: 90%;
+  line-height: 40px;
+  margin-bottom: 0;
+  text-transform: none;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.footer-divider{
+  margin-bottom: 30px;
+}
+
+
+.bottom_inner aside {
+    position: relative;
+    float: left;
+    margin: 0 2%;
+}
+
+.cmsms_color_scheme_footer{
+  color: rgba(255,255,255,0.3);
+}
+.bottom_inner .widgettitle {
+    padding-bottom: 5px;
+    position: relative;
+    color: #ffffff;
+}
+.widgettitle{
+    font-size: 16px;
+}
+
+.textwidget{
+  color: #ffffff;
+}
+
+.one_fourth {
+    width: 21%;
+    text-align: left;
+}
+.one_first, .one_half, .one_third, .two_third, .one_fourth, .three_fourth, .one_fifth, .one_sixth {
+    position: relative;
+    float: left;
+    margin: 0 2%;
+}
+
+.one_first, .one_half, .one_third, .two_third, .one_fourth, .three_fourth, .one_fifth, .one_sixth {
+    position: relative;
+    float: left;
+    margin: 0 2%;
 }
