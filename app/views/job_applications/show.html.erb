@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post_id:</strong>
+  <%= @job_application.post_id %>
+</p>
+
+<p>
+  <strong>Ask Rate:</strong>
+  <%= @job_application.ask_rate %>
+</p>
+
+<%= link_to 'Edit', edit_job_application_path(@job_application, :postid => @job_application.post_id) %> |
+<%= link_to 'Back', post_path(@job_application.post_id) %>

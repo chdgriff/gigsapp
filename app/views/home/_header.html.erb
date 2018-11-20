@@ -1,0 +1,52 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <%= link_to "Logo", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <ul class="nav navbar-nav ml-auto">
+      <%= link_to "Home", root_path, class: "nav-item nav-link" %>
+      <%= link_to "Posts", posts_path, class: "nav-item nav-link" %>
+      <%= link_to 'About', about_index_path, class: "nav-item nav-link" %>
+
+    <% if user_signed_in? %>
+      <li>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Account
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item"
+              <%= link_to "Profile", user_path(current_user.id), class: "nav-item nav-link" %>
+            </a>
+            <a class="dropdown-item"
+              <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-item nav-link" %>
+            </a>
+            <a class="dropdown-item"
+              <%= link_to 'Applications', job_applications_path, class: "nav-item nav-link" %>
+            </a>
+            <a class="dropdown-item"
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+            </a>
+          </div>
+        </div>
+      </li>
+    <% else %>
+        <li>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Login
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item"
+                <%= link_to 'Login', new_user_session_path, class: "nav-item nav-link" %>              </a>
+              <a class="dropdown-item"
+                <%= link_to 'Sign up', new_user_registration_path, class: "nav-item nav-link" %>
+              </a>
+            </div>
+          </div>
+        </li>
+    <% end %>
+    </ul>
+  </div>
+</nav>
