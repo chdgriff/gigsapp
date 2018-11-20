@@ -80,6 +80,9 @@ test:
 #
 production:
   <<: *default
-  database: gigsapp_production
-  username: gigsapp
-  password: <%= ENV['GIGSAPP_DATABASE_PASSWORD'] %>
+  database: d26b7oqooc8cip
+  username: wniydbsoxnfwwk
+  password: e816322f75619b0ddacbf36880978f0ed6d8848f21746c2cad88629d5c70de4e
+  host: ec2-50-19-249-121.compute-1.amazonaws.com
+  port: 5432
+  pool: 5
