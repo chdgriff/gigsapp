@@ -88,5 +88,3 @@ test:
 production:
   <<: *default
   database: gigsapp_production
-  username: gigsapp
-  password: <%= ENV['GIGSAPP_DATABASE_PASSWORD'] %>
