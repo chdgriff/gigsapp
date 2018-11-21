@@ -1,0 +1,43 @@
+<div id="main-container" class="container-fluid">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Gigs</h1>
+  <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
+  <h1> </h1>
+
+  <%= form_for "",url: posts_path, role: "search", method: :get do %>
+    <% text_field_tag :search, @search_term, options = {style:"height:40px;length:300px;border-radius:10px;", placeholder:" Search...", :size=>"40"} %>
+  <% end %>
+  <h1> </h1>
+
+<table class ="table table-striped table-hover">
+  <thead>
+    <tr class="thread-light">
+      <th>Picture</th>
+      <th scope="col">Jobs</th>
+      <th scope="col">Description</th>
+      <th scope="col">Location</th>
+      <th scope="col">Rate</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr class="table-row">
+      <tr>
+        <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
+        <td><%= post.title %></td>
+        <td><%= post.description %></td>
+        <td><%= post.location %></td>
+        <td><%= post.rate %></td>
+        <td><%= link_to "Read More", post_path(post), class: "btn btn-info" %>
+        <% if user_signed_in? %>
+          <% if current_user.id == post.user_id  %>
+            <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary"%>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
