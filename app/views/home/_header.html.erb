@@ -25,6 +25,9 @@
                   <a class="dropdown-item"
                     <%= link_to "Profile", user_path(current_user.id), class: "nav-item nav-link" %>
                   </a>
+                   <a class="dropdown-item"
+                    <%= link_to "My Application", job_applications_path(current_user.id), class: "nav-item nav-link" %>
+                  </a>
                   <a class="dropdown-item"
                     <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-item nav-link" %>
                   </a>

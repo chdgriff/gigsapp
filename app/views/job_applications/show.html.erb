@@ -6,9 +6,9 @@
 </p>
 
 <p>
-  <strong>Ask Rate:</strong>
+  <strong>Requested Rate:</strong>
   <%= @job_application.ask_rate %>
 </p>
 
-<%= link_to 'Edit', edit_job_application_path(@job_application, :postid => @job_application.post_id) %> |
-<%= link_to 'Back', post_path(@job_application.post_id) %>
+<%= link_to 'Edit', edit_job_application_path(@job_application, :postid => @job_application.post_id), class: "btn btn-info" %> 
+<%= link_to 'Back', post_path(@job_application.post_id), class: "btn btn-primary" %>

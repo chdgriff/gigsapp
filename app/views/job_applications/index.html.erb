@@ -1,25 +1,41 @@
 <p id="notice"><%= notice %></p>
+<br>
+<br>
 
 <h1>Job Applications</h1>
 
-<table>
+<table class ="table table-striped table-hover">
   <thead>
-    <tr>
-      <th colspan="3"></th>
+    <tr class="thread-light">
+      <th scope="col">Post</th>
+      <th scope="col">Description</th>
+      <th scope="col">Offered Rate</th>
+      <th scope="col">Requested Rate</th>
+      <th></th>
     </tr>
   </thead>
 
-  <tbody>
-    <% @job_applications.each do |job_application| %>
-      <tr>
-        <td><%= link_to 'Show', job_application %></td>
-        <td><%= link_to 'Edit', edit_job_application_path(job_application) %></td>
-        <td><%= link_to 'Destroy', job_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+      <% @job_applications.each do |job_application| %>
+        <% if job_application.user_id == current_user.id %>
+        
+        <% @posts.each do |post| %>
+          <% if post.id == job_application.post_id %>
+
+          <tr class="table-row">
+            <td><%= post.title %></td>
+            <td><%= post.description %></td>
+            <td>$<%= post.rate %></td>
+            <td>$<%= job_application.ask_rate %></td>
+
+            <td><%= link_to 'Edit', edit_job_application_path(job_application, :postid => job_application.post_id), class: "btn btn-primary" %>
+            <%= link_to 'Go to Post', post_path(job_application.post_id), class: "btn btn-info" %>
+            <%= link_to 'Delete', job_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+
+          </tr>
+          <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Job Application', new_job_application_path %>

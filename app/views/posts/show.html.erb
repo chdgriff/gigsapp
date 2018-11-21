@@ -48,7 +48,7 @@
 
         <% if jobapp.user_id == current_user.id %>
           <%# Current user has applied this job before. %>
-          <%= link_to 'Your Application', job_application_path(jobapp), class: 'btn btn-success'%>
+          <%= link_to 'Your Application', job_applications_path(current_user.id), class: 'btn btn-success'%>
         <% else %>
           <%# Current user hasn't applied this job before. %>
           <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
