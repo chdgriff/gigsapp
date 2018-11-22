@@ -1,6 +1,6 @@
 class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :show_applicants, :edit, :update, :destroy]
 
   # GET /job_applications
   # GET /job_applications.json
@@ -14,10 +14,17 @@ class JobApplicationsController < ApplicationController
   def show
   end
 
+  def show_applicants
+    @job_applications = JobApplication.all
+    @users = User.all
+    @post = Post.find(params[:postid])
+  end
+
   # GET /job_applications/new
   def new
     @job_application = JobApplication.new
     @post = Post.find(params[:postid])
+
   end
 
   # GET /job_applications/1/edit
