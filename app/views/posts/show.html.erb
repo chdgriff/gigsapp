@@ -24,7 +24,8 @@
 
 <p>
   <strong> Employer: </strong>
-  <%= link_to "@post.user.first_name @post.user.last_name", user_path(@post.user) %>
+  <% ename = @post.user.first_name + " " + @post.user.last_name %>
+  <%= link_to ename, user_path(@post.user) %>
 </p>
 
 <p>
