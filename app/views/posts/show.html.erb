@@ -47,16 +47,21 @@
     <%# This post has no job_applications record yet. %>
       <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
     <% else %>
-      <% @post.job_applications.each do |jobapp| %>
 
+      <% applied = false %>
+      <% @post.job_applications.each do |jobapp| %>
         <% if jobapp.user_id == current_user.id %>
           <%# Current user has applied this job before. %>
+          <% applied = true %>
           <%= link_to 'Your Application', job_applications_path(current_user.id), class: 'btn btn-success'%>
-        <% else %>
-          <%# Current user hasn't applied this job before. %>
-          <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
         <% end %>
       <% end %>
+
+      <% if !applied %>
+        <%# Current user hasn't applied this job before. %>
+        <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+      <% end %>
+
     <% end %>
 <% end %>
 
