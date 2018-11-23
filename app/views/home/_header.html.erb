@@ -1,17 +1,17 @@
 <head>
 
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
     <div class="container">
       <%= link_to "Logo", root_path, class: "navbar-brand" %>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <li class="nav-item py-3 px-0 px-lg-3">
             <%= link_to "Home", root_path, class: "nav-item nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item py-3 px-0 px-lg-3">
             <%= link_to "Posts", posts_path, class: "nav-item nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item py-3 px-0 px-lg-3">
             <%= link_to 'About', about_index_path, class: "nav-item nav-link" %>
           </li>
 
@@ -58,4 +58,3 @@
     </div>
   </nav>
 </head>
-
