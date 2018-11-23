@@ -1,24 +1,35 @@
-<%= form_with(model: job_application, local: true) do |form| %>
-  <% if job_application.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(job_application.errors.count, "error") %> prohibited this job_application from being saved:</h2>
+<head>
 
-      <ul>
-      <% job_application.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <%= stylesheet_link_tag "header" %>
+
+</head>
+<div class = "headerbreak"></div>
+<body>
+
+  <%= form_with(model: job_application, local: true) do |form| %>
+    <% if job_application.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(job_application.errors.count, "error") %> prohibited this job_application from being saved:</h2>
+
+        <ul>
+        <% job_application.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row field form-group col-3">
+      <%= form.label :Request_a_rate %>
+      <%= form.text_field :ask_rate, class: "form-control", placeholder: "Ask Rate"%>
+    </div>
+
+    <%= form.hidden_field :post_id, :value => @post.id %>
+
+    <div class="actions">
+      <%= form.submit "Submit", class: "btn btn-success" %>
     </div>
   <% end %>
 
-  <div class="row field form-group col-3">
-    <%= form.label :Request_a_rate %>
-    <%= form.text_field :ask_rate, class: "form-control", placeholder: "Ask Rate"%>
-  </div>
-
-  <%= form.hidden_field :post_id, :value => @post.id %>
-
-  <div class="actions">
-    <%= form.submit "Submit", class: "btn btn-success" %>
-  </div>
-<% end %>
+</body>

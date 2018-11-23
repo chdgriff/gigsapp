@@ -1,6 +1,16 @@
-<h1>New Job Application</h1>
+<head>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <%= stylesheet_link_tag "header" %>
+
+</head>
+<div class = "headerbreak"></div>
+<body>
+
+  <h1>New Job Application</h1>
 
 
-<%= render 'form', job_application: @job_application %>
-<br>
-<%= link_to 'Back', post_path(@post), class: "btn btn-primary" %>
+  <%= render 'form', job_application: @job_application %>
+  <br>
+  <%= link_to 'Back', post_path(@post), class: "btn btn-primary" %>
+</body>

@@ -76,3 +76,55 @@
 .bg-secondary {
   background-color: #868F82 !important;
 }
+
+
+.btn {
+  -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  font-family: 'Varela Round';
+  font-size: 100%;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  border: 0;
+}
+
+.btn-primary {
+  background-color: #64a19d;
+  opacity:0.8;
+}
+
+.btn-primary:hover {
+  background-color: #4f837f;
+}
+
+.btn-primary:focus {
+  background-color: #4f837f;
+  color: white;
+}
+
+.btn-primary:active {
+  background-color: #4f837f !important;
+}
+
+.btn-secondary {
+  background-color: #b3b300;
+  opacity:0.8;
+}
+
+.btn-secondary:hover {
+  background-color: #666600;
+}
+
+.btn-secondary:focus {
+  background-color: #666600;
+  color: white;
+}
+
+.btn-secondary:active {
+  background-color: #666600 !important;
+}
+
+.headerbreak{
+  margin: 8rem;
+}

@@ -1,41 +1,51 @@
-<p id="notice"><%= notice %></p>
-<br>
-<br>
+<head>
 
-<h1>Job Applications</h1>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <%= stylesheet_link_tag "header" %>
 
-<table class ="table table-striped table-hover">
-  <thead>
-    <tr class="thread-light">
-      <th scope="col">Post</th>
-      <th scope="col">Description</th>
-      <th scope="col">Offered Rate</th>
-      <th scope="col">Requested Rate</th>
-      <th></th>
-    </tr>
-  </thead>
+</head>
+<div class = "headerbreak"></div>
+<body>
 
-    <tbody>
-      <% @job_applications.each do |job_application| %>
-        <% if job_application.user_id == current_user.id %>
-        
-        <% @posts.each do |post| %>
-          <% if post.id == job_application.post_id %>
+  <p id="notice"><%= notice %></p>
+  <br>
+  <br>
 
-          <tr class="table-row">
-            <td><%= post.title %></td>
-            <td><%= post.description %></td>
-            <td>$<%= post.rate %></td>
-            <td>$<%= job_application.ask_rate %></td>
+  <h1>Job Applications</h1>
 
-            <td><%= link_to 'Edit', edit_job_application_path(job_application, :postid => job_application.post_id), class: "btn btn-primary" %>
-            <%= link_to 'Go to Post', post_path(job_application.post_id), class: "btn btn-info" %>
-            <%= link_to 'Delete', job_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+  <table class ="table table-striped table-hover">
+    <thead>
+      <tr class="thread-light">
+        <th scope="col">Post</th>
+        <th scope="col">Description</th>
+        <th scope="col">Offered Rate</th>
+        <th scope="col">Requested Rate</th>
+        <th></th>
+      </tr>
+    </thead>
 
-          </tr>
-          <% end %>
+      <tbody>
+        <% @job_applications.each do |job_application| %>
+          <% if job_application.user_id == current_user.id %>
+
+          <% @posts.each do |post| %>
+            <% if post.id == job_application.post_id %>
+
+            <tr class="table-row">
+              <td><%= post.title %></td>
+              <td><%= post.description %></td>
+              <td>$<%= post.rate %></td>
+              <td>$<%= job_application.ask_rate %></td>
+
+              <td><%= link_to 'Edit', edit_job_application_path(job_application, :postid => job_application.post_id), class: "btn btn-primary" %>
+              <%= link_to 'Go to Post', post_path(job_application.post_id), class: "btn btn-info" %>
+              <%= link_to 'Delete', job_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+
+            </tr>
+            <% end %>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-</table>
+      </tbody>
+  </table>
+</body>

@@ -1,5 +1,16 @@
-<p>Welcome <%= @email %>!</p>
+<head>
 
-<p>You can confirm your account email through the link below:</p>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <%= stylesheet_link_tag "header" %>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+</head>
+<div class = "headerbreak"></div>
+<body>
+
+  <p>Welcome <%= @email %>!</p>
+
+  <p>You can confirm your account email through the link below:</p>
+
+  <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+</body>

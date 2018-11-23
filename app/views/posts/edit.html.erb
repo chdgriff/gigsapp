@@ -1,9 +1,19 @@
-<div class="container jumbotron" style="margin-top: 30px">
-<h1>Edit Gig</h1>
-<%= render 'form', post: @post %>
+<head>
 
-<div class=mt-3>
-<%= link_to 'Delete', @post, class: 'btn btn-danger',
-    method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', posts_path, class: "btn btn-primary"%>
-</div>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <%= stylesheet_link_tag "header" %>
+
+</head>
+<div class = "headerbreak"></div>
+<body>
+
+  <div class="container jumbotron" style="margin-top: 30px">
+  <h1>Edit Gig</h1>
+  <%= render 'form', post: @post %>
+
+  <div class=mt-3>
+  <%= link_to 'Delete', @post, class: 'btn btn-danger',
+      method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Back', posts_path, class: "btn btn-primary"%>
+  </div>
+</body>

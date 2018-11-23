@@ -1,8 +1,18 @@
-<div class="container jumbotron" style="margin-top: 30px">
-  <h1>New Gig</h1>
+<head>
 
-    <%= render 'form', post: @post %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <%= stylesheet_link_tag "header" %>
 
-    <%= link_to 'Back', posts_path, class: "btn btn-primary mt-3" %>
+</head>
+<div class = "headerbreak"></div>
+<body>
 
-</div>
+  <div class="container jumbotron" style="margin-top: 30px">
+    <h1>New Gig</h1>
+
+      <%= render 'form', post: @post %>
+
+      <%= link_to 'Back', posts_path, class: "btn btn-primary mt-3" %>
+
+  </div>
+</body>
