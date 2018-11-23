@@ -19,7 +19,7 @@
 }
 
 .gigshead h1 {
-  font-family: 'Varela Round';
+  font-family: 'Luckiest Guy', cursive;
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
@@ -30,7 +30,7 @@
 .gigshead h2 {
   max-width: 20rem;
   font-size: 1rem;
-  font-family: cursive;
+  font-family: 'Special Elite', cursive;
 }
 
 @media (min-width: 768px) {
@@ -109,7 +109,7 @@
 .about-section {
   padding-top: 10rem;
   background: -webkit-gradient(linear, left top, left bottom, from(#161616), color-stop(75%, rgba(22, 22, 22, 0.9)), to(rgba(22, 22, 22, 0.8)));
-  background: linear-gradient(to bottom, #161616 0%, rgba(22, 22, 22, 0.9) 75%, rgba(22, 22, 22, 0.7) 100%), image-url('ucsc.jpg');;
+  background: linear-gradient(to bottom, #161616 0%, rgba(22, 22, 22, 0.9) 75%, rgba(22, 22, 22, 0.7) 100%), image-url('ucsc.jpg');
 }
 
 .about-section p {
@@ -118,6 +118,9 @@
 
 .about_background{
   background-color: #EEEEEE;
+  background: image-url('feature.jpg');
+  background-repeat: no-repeat;
+  background-size: 2600px 1000px;
 }
 
 .service_background{
@@ -129,6 +132,7 @@
 .service-heading {
   margin: 15px 0;
   text-transform: none;
+  font-family: 'Special Elite', cursive;
 }
 
 section {
@@ -139,7 +143,7 @@ section h2.section-heading {
   font-size: 32px;
   margin-top: 0;
   margin-bottom: 15px;
-  font-family: cursive;
+  font-family: 'Special Elite', cursive;
 }
 
 section h3.section-subheading {
@@ -148,7 +152,7 @@ section h3.section-subheading {
   font-style: italic;
   margin-bottom: 75px;
   text-transform: none;
-  font-family: 'Varela Round', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: 'Overlock', cursive;
 }
 
 @media (min-width: 768px) {
