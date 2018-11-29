@@ -29,10 +29,9 @@
             <td>$<%= job_application.ask_rate %></td>
 
             <td>
-            <%= if 'Accept' class: "btn btn-success" %>
-            @user = @post.user_id
-            mail(to: @user.email, subject: 'you were accepted for the job')
-              <%end%>
+            <%= link_to 'Accept', job_confirmation, class: "btn btn-success" %>
+ 
+              
               
             <%= link_to 'Decline', post_path(@post), class: "btn btn-danger" %>
             </td>
