@@ -29,8 +29,10 @@
             <td>$<%= job_application.ask_rate %></td>
 
             <td>
-            <%= link_to 'Accept', job_confirmation.erb, class: "btn btn-success" %>
-
+            <%= link_to 'Accept', post_path(@post), class: "btn btn-success" %>
+ 
+              
+              
             <%= link_to 'Decline', post_path(@post), class: "btn btn-danger" %>
             </td>
 
