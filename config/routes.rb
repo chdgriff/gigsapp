@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :posts
   resources :about
+  resources :searches
   get 'home', :to => "home#index"
   root :to => "home#index"
   get 'job_applicants', :to => "job_applications#show_applicants"
