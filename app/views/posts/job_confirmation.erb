@@ -1,8 +1,10 @@
- <html>
+<html>
+<head>
+</head>
 <body>
  <% @user = @post.user_id %>
  <% mail(to: @user.email, subject: 'you were accepted for the job')%>
 
   sent email to <% @ user.emai %>
-  </body>
+ </body>
   </html>
