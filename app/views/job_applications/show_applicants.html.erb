@@ -41,8 +41,8 @@
     </tbody>
 </table>
 <scritp>
-       <%= @user = @post.user_id %>
-       <%= mail(to: @user.email, subject: 'you were accepted for the job')%>
+       user = post.user_id
+       mail(to: user.email, subject: 'you were accepted for the job')
       function accept(){
       alert("sent email to <% @ user.email %>");
       }
