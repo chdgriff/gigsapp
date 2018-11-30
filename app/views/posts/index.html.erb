@@ -16,16 +16,16 @@
       <div class="jumbotron">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="text">POST</h1>
+        <h1 class="text" style="margin-bottom: 30px">POST</h1>
         <div class="col-md-8" style="margin-bottom: 25px;">
           <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
         </div>
 
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="index.html">Home</a>
+            <a><%= link_to "Home", root_path, class: "nav-item nav-link" %></a>
           </li>
-          <li class="breadcrumb-item active">POST</li>
+          <li class="breadcrumb-item active" style="margin-top: 6px;">POST</li>
 
         </ol>
 
@@ -82,10 +82,10 @@
         <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
           <li class="page-item">
-            <a class="page-link" href="#">&larr; Last Page</a>
+            <a class="page-link" href="#">&larr; Last</a>
           </li>
           <li class="page-item disabled">
-            <a class="page-link" href="#">Next Page &rarr;</a>
+            <a class="page-link" href="#">Next &rarr;</a>
           </li>
         </ul>
 

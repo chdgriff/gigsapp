@@ -1,81 +1,86 @@
-<head>
+<div class = "background_color">
+  <head>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <%= stylesheet_link_tag "header" %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "header" %>
+    <%= stylesheet_link_tag "home" %>
 
-</head>
-<div class = "headerbreak"></div>
-<body>
+  </head>
+
+  <div class = "headerbreak"></div>
+  <body>
 
 
-  <p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-  <div class="container">
-    <div class="jumbotron" style="margin-top: 30px">
+    <div class="container">
+      <div class="jumbotron" style="margin-top: 30px">
 
-  <p>
-    <h1><%= @post.title %></h1>
-  </p>
+    <p>
+      <h1><%= @post.title %></h1>
+    </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @post.description %>
-  </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @post.description %>
+    </p>
 
-  <p>
-    <strong>Location:</strong>
-    <%= @post.location %>
-  </p>
+    <p>
+      <strong>Location:</strong>
+      <%= @post.location %>
+    </p>
 
-  <p>
-    <strong>Rate:</strong>
-    <%= @post.rate %>
-  </p>
+    <p>
+      <strong>Rate:</strong>
+      <%= @post.rate %>
+    </p>
 
-  <p>
-    <strong> Employer: </strong>
-    <% ename = @post.user.first_name + " " + @post.user.last_name %>
-    <%= link_to ename, user_path(@post.user) %>
-  </p>
+    <p>
+      <strong> Employer: </strong>
+      <% ename = @post.user.first_name + " " + @post.user.last_name %>
+      <%= link_to ename, user_path(@post.user) %>
+    </p>
 
-  <p>
-  <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
-  </p>
+    <p>
+    <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
+    </p>
 
-  <%= link_to 'Back', posts_path, class: 'btn btn-warning'%>
+    <%= link_to 'Back', posts_path, class: 'btn btn-warning'%>
 
-  <% if user_signed_in? %>
-    <% if current_user.id == @post.user_id  %>
-      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%>
-      <%= link_to 'Show Applicants', job_applicants_path(:postid => @post.id), class: 'btn btn-info'%>
-    <% end %>
-  <% end %>
-
-  <% if user_signed_in? && current_user.id != @post.user_id %>
-  <%# This post isn't belongs to this current user. %>
-      <% if @post.job_applications.count == 0 %>
-      <%# This post has no job_applications record yet. %>
-        <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
-      <% else %>
-
-        <% applied = false %>
-        <% @post.job_applications.each do |jobapp| %>
-          <% if jobapp.user_id == current_user.id %>
-            <%# Current user has applied this job before. %>
-            <% applied = true %>
-            <%= link_to 'Your Application', job_applications_path(current_user.id), class: 'btn btn-success'%>
-          <% end %>
-        <% end %>
-
-        <% if !applied %>
-          <%# Current user hasn't applied this job before. %>
-          <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
-        <% end %>
-
+    <% if user_signed_in? %>
+      <% if current_user.id == @post.user_id  %>
+        <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%>
+        <%= link_to 'Show Applicants', job_applicants_path(:postid => @post.id), class: 'btn btn-info'%>
       <% end %>
-  <% end %>
+    <% end %>
 
-  </div>
-  </div>
+    <% if user_signed_in? && current_user.id != @post.user_id %>
+    <%# This post isn't belongs to this current user. %>
+        <% if @post.job_applications.count == 0 %>
+        <%# This post has no job_applications record yet. %>
+          <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+        <% else %>
 
-  </body>
+          <% applied = false %>
+          <% @post.job_applications.each do |jobapp| %>
+            <% if jobapp.user_id == current_user.id %>
+              <%# Current user has applied this job before. %>
+              <% applied = true %>
+              <%= link_to 'Your Application', job_applications_path(current_user.id), class: 'btn btn-success'%>
+            <% end %>
+          <% end %>
+
+          <% if !applied %>
+            <%# Current user hasn't applied this job before. %>
+            <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+          <% end %>
+
+        <% end %>
+    <% end %>
+
+    </div>
+    </div>
+
+    </body>
+</div>
