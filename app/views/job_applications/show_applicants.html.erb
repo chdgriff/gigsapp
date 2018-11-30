@@ -31,9 +31,11 @@
             <td>
             <button onclick="accept()" class="btn btn-success">Accept</button>
             <scritp>
+              function accept(){
                <% @user = @post.user_id %>
                 <% mail(to: @user.email, subject: 'you were accepted for the job')%>
                 alert("sent email to <% @ user.email %>");
+              }
             </scritp>
             <%= link_to 'Decline', post_path(@post), class: "btn btn-danger" %>
             </td>
