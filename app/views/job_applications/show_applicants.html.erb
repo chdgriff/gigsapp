@@ -30,12 +30,7 @@
 
             <td>
             <button onclick="accept()" class="btn btn-success">Accept</button>
-            <scritp>
-              function accept(){
-              alert("sent email to <% @ user.email %>");
-              }
-            </scritp>
-            <%= link_to 'Decline', post_path(@post), class: "btn btn-danger" %>
+                        <%= link_to 'Decline', post_path(@post), class: "btn btn-danger" %>
             </td>
 
           </tr>
@@ -45,5 +40,10 @@
       <% end %>
     </tbody>
 </table>
+<scritp>
+              function accept(){
+              alert("sent email to <% @ user.email %>");
+              }
+  </scritp>
 
 <%= link_to 'Back', post_path(@post), class: "btn btn-warning" %>
