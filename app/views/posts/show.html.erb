@@ -6,13 +6,15 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
     <%= stylesheet_link_tag "header" %>
     <%= stylesheet_link_tag "home" %>
+    <%= stylesheet_link_tag "posts" %>
+
 
   </head>
 
 
   <body>
     <!-- Page Content -->
-    <div class="container font">
+    <div class="container post">
       <h1 class="mt-4 mb-3">&nbsp</h1>
       <div class="jumbotron">
 
@@ -26,43 +28,68 @@
           <li class="breadcrumb-item active" style="margin-top: 6px;">POST</li>
         </ol>
 
-        <p>
-          <h2><%= @post.title %></h2>
-        </p>
+        <div class="row">
+          <div class="col-md-7">
 
-        <p>
-          <strong>Description:</strong>
-          <%= @post.description %>
-        </p>
+            <div class="card mb-4">
+              <center class="card-header"><%= @post.title %></center>
+              <div class="card-body" style="margin-left: 10px">
+                <div class="col-lg-10">
+                  <h5 style="margin-bottom: 40px">
+                    <strong>Description:</strong>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp
+                    <%= @post.description %>
+                  </h5>
 
-        <p>
-          <strong>Location:</strong>
-          <%= @post.location %>
-        </p>
+                  <h5 style="margin-bottom: 40px">
+                    <strong>Location:</strong>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <%= @post.location %>
+                  </h5>
 
-        <p>
-          <strong>Rate:</strong>
-          <%= @post.rate %>
-        </p>
+                  <h5 style="margin-bottom: 40px">
+                    <strong>Rate:</strong>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <%= @post.rate %>
+                  </h5>
 
-        <p>
-          <strong> Employer: </strong>
-          <% ename = @post.user.first_name + " " + @post.user.last_name %>
-          <%= link_to ename, user_path(@post.user) %>
-        </p>
+                  <h5>
+                    <strong> Employer: </strong>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <% ename = @post.user.first_name + " " + @post.user.last_name %>
+                    <%= link_to ename, user_path(@post.user) %>
+                  </h5>
 
-        <p>
-        <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
-        </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <p style="margin-top: 50px">
+            <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
+            </p>
 
-        <%= link_to 'Back', posts_path, class: 'btn btn-warning'%>
+          </div>
+        </div>
+
+        <%= link_to 'Back', posts_path, class: 'btn btn-warning', style: "margin-right: 20px; margin-left: 2px"%>
 
         <% if user_signed_in? %>
           <% if current_user.id == @post.user_id  %>
-            <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%>
+            <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' , style: "margin-right: 20px"%>
             <%= link_to 'Show Applicants', job_applicants_path(:postid => @post.id), class: 'btn btn-info'%>
           <% end %>
         <% end %>
+
+        <div style= "padding: 20px; "></div>
+        <div class="card mb-4">
+          <center class="card-header">Related Gigs</center>
+          <div class="card-body">
+
+          </div>
+        </div>
+
+
 
         <% if user_signed_in? && current_user.id != @post.user_id %>
         <%# This post isn't belongs to this current user. %>

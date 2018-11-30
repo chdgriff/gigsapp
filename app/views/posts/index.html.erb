@@ -5,13 +5,14 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
     <%= stylesheet_link_tag "header" %>
     <%= stylesheet_link_tag "home" %>
+    <%= stylesheet_link_tag "posts" %>
 
   </head>
 
 
   <body>
     <!-- Page Content -->
-    <div class="container font">
+    <div class="container post">
       <h1 class="mt-4 mb-3">&nbsp</h1>
       <div class="jumbotron">
 
@@ -44,7 +45,6 @@
         </div>
       <!-- </div> -->
 
-        <!-- Blog Post -->
         <tbody>
           <% @posts.each do |post| %>
               <div class="card mb-4">
@@ -74,6 +74,11 @@
                 <div class="card-footer text-muted">
                   Posted on
                   <a href="#"><%= post.created_at%></a>
+                  By
+                  <a href="#">
+                    <% ename = post.user.first_name + " " + post.user.last_name %>
+                    <%= link_to ename, user_path(post.user) %>
+                  </a>
                 </div>
               </div>
           <% end %>
