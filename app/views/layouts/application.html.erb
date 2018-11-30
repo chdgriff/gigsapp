@@ -13,12 +13,13 @@
   </head>
 
   <div class = "headerbreak"></div>
-  
+
   <body>
 
-    <%= render 'home/header' %>
-    <%= render 'layouts/messages' %>
-
+    <%= render 'layouts/header' %>
     <%= yield %>
+    <%= render 'layouts/messages' %>
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>
