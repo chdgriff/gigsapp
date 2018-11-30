@@ -1,15 +1,15 @@
 class Search < ApplicationRecord
-  def post
-    @posts ||= find_post
+  def posts
+    @posts ||= find_posts
   end
 
   private
 
-  def find_post
-    post = post.where("title like ?", "%#{title}%") if title.present?
-    post = post.where("description like ?", "%#{description}%") if description.present?
-    post = post.where("location ?", "%#{location}%") if location.present?
-    post = post.where("rate = ?", rate) if rate.present?
-    post
+  def find_posts
+    posts = posts.where("title like ?", "%#{title}%") if title.present?
+    posts = posts.where("description like ?", "%#{description}%") if description.present?
+    posts = posts.where("location ?", "%#{location}%") if location.present?
+    posts = posts.where("rate = ?", rate) if rate.present?
+    posts
   end
 end
