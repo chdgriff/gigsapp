@@ -1,3 +1,4 @@
+
 <div class = "background_color">
   <head>
 
@@ -8,79 +9,101 @@
 
   </head>
 
-  <div class = "headerbreak"></div>
+
   <body>
+    <!-- Page Content -->
+    <div class="container font">
+      <h1 class="mt-4 mb-3">&nbsp</h1>
+      <div class="jumbotron">
 
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="text" style="margin-bottom: 30px">New Gig</h1>
 
-    <p id="notice"><%= notice %></p>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a><%= link_to "Home", root_path, class: "nav-item nav-link" %></a>
+          </li>
+          <li class="breadcrumb-item active" style="margin-top: 6px;">POST</li>
+        </ol>
 
-    <div class="container">
-      <div class="jumbotron" style="margin-top: 30px">
+        <p>
+          <h2><%= @post.title %></h2>
+        </p>
 
-    <p>
-      <h1><%= @post.title %></h1>
-    </p>
+        <p>
+          <strong>Description:</strong>
+          <%= @post.description %>
+        </p>
 
-    <p>
-      <strong>Description:</strong>
-      <%= @post.description %>
-    </p>
+        <p>
+          <strong>Location:</strong>
+          <%= @post.location %>
+        </p>
 
-    <p>
-      <strong>Location:</strong>
-      <%= @post.location %>
-    </p>
+        <p>
+          <strong>Rate:</strong>
+          <%= @post.rate %>
+        </p>
 
-    <p>
-      <strong>Rate:</strong>
-      <%= @post.rate %>
-    </p>
+        <p>
+          <strong> Employer: </strong>
+          <% ename = @post.user.first_name + " " + @post.user.last_name %>
+          <%= link_to ename, user_path(@post.user) %>
+        </p>
 
-    <p>
-      <strong> Employer: </strong>
-      <% ename = @post.user.first_name + " " + @post.user.last_name %>
-      <%= link_to ename, user_path(@post.user) %>
-    </p>
+        <p>
+        <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
+        </p>
 
-    <p>
-    <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
-    </p>
+        <%= link_to 'Back', posts_path, class: 'btn btn-warning'%>
 
-    <%= link_to 'Back', posts_path, class: 'btn btn-warning'%>
-
-    <% if user_signed_in? %>
-      <% if current_user.id == @post.user_id  %>
-        <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%>
-        <%= link_to 'Show Applicants', job_applicants_path(:postid => @post.id), class: 'btn btn-info'%>
-      <% end %>
-    <% end %>
-
-    <% if user_signed_in? && current_user.id != @post.user_id %>
-    <%# This post isn't belongs to this current user. %>
-        <% if @post.job_applications.count == 0 %>
-        <%# This post has no job_applications record yet. %>
-          <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
-        <% else %>
-
-          <% applied = false %>
-          <% @post.job_applications.each do |jobapp| %>
-            <% if jobapp.user_id == current_user.id %>
-              <%# Current user has applied this job before. %>
-              <% applied = true %>
-              <%= link_to 'Your Application', job_applications_path(current_user.id), class: 'btn btn-success'%>
-            <% end %>
+        <% if user_signed_in? %>
+          <% if current_user.id == @post.user_id  %>
+            <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%>
+            <%= link_to 'Show Applicants', job_applicants_path(:postid => @post.id), class: 'btn btn-info'%>
           <% end %>
-
-          <% if !applied %>
-            <%# Current user hasn't applied this job before. %>
-            <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
-          <% end %>
-
         <% end %>
-    <% end %>
 
-    </div>
-    </div>
+        <% if user_signed_in? && current_user.id != @post.user_id %>
+        <%# This post isn't belongs to this current user. %>
+            <% if @post.job_applications.count == 0 %>
+            <%# This post has no job_applications record yet. %>
+              <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+            <% else %>
 
-    </body>
+              <% applied = false %>
+              <% @post.job_applications.each do |jobapp| %>
+                <% if jobapp.user_id == current_user.id %>
+                  <%# Current user has applied this job before. %>
+                  <% applied = true %>
+                  <%= link_to 'Your Application', job_applications_path(current_user.id), class: 'btn btn-success'%>
+                <% end %>
+              <% end %>
+
+              <% if !applied %>
+                <%# Current user hasn't applied this job before. %>
+                <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+              <% end %>
+
+            <% end %>
+        <% end %>
+
+      </div>
+
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+        <div class="container">
+            <aside id="text-5" class="widget widget_text ">
+              <h3 class="widgettitle text-center" style="color: #ffffff;"><b>Gigglers:</b></h3>
+              <a style="color: #C6C6C6;">Chrisopher Griffis &nbsp;&nbsp;&nbsp;&nbsp; Christopher Young &nbsp;&nbsp;&nbsp;&nbsp;  Tangni Wang &nbsp;&nbsp;&nbsp;&nbsp;  Thomas Bowen &nbsp;&nbsp;&nbsp;&nbsp;  Tung Hoi Man
+              </a><br/>
+            </aside>
+          <hr class="footer-divider">
+
+          <p class="m-0 text-center text-white">© 2018. Jack.Baskin School of Engineering.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+
 </div>
