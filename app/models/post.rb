@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: {minimum: 3}
 
   has_attached_file :asset, styles: {
-    medium: '300x300>',
+    medium: '900x250>',
     small: '140x140>',
     thumb: '64x64!'
   }, default_url: ":style/missing_asset.jpg"
