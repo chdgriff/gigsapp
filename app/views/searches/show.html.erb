@@ -1,3 +1,16 @@
 <h1>Search Results</h1>
 
-<%= render @search.post %>
+<p><%= link_to 'Back', new_search_path %></p>
+<% if @search.search_posts.empty? %>
+  <p>No Record Found</p>
+<%else%>
+  <% @search.search_posts.each do |c| %>
+    <br>
+    <div class="div">
+      <p>Job: $<%= c.title %></p>
+      <p>Description: $<%= c.description %></p>
+      <p>Location: $<%= c.location %></p>
+      <p>Rate: $<%= c.rate %></p>
+    </div>
+  <%end%>
+<%end%>
