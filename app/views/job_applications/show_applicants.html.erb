@@ -41,9 +41,11 @@
     </tbody>
 </table>
 <scritp>
-              function accept(){
-              alert("sent email to <% @ user.email %>");
-              }
+       <%= @user = @post.user_id %>
+       <%= mail(to: @user.email, subject: 'you were accepted for the job')%>
+      function accept(){
+      alert("sent email to <% @ user.email %>");
+      }
   </scritp>
 
 <%= link_to 'Back', post_path(@post), class: "btn btn-warning" %>
