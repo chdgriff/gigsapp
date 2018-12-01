@@ -118,9 +118,9 @@
 
 .about_background{
   background-color: #EEEEEE;
-  background: image-url('feature.jpg');
+  background:linear-gradient(rgba(22, 22, 22, 0.4) 30%, rgba(22, 22, 22, 0.4) 30%), image-url('feature.jpg');
   background-repeat: no-repeat;
-  background-size: 2600px 1000px;
+  background-size: 2500px 1000px;
 }
 
 .service_background{
@@ -224,4 +224,12 @@ footer ul.quicklinks {
     position: relative;
     float: left;
     margin: 0 2%;
+}
+
+.jumbotron{
+  background-color:#FFFFFF;
+}
+
+.background_color{
+  background-image: image-url('cloth.jpg');
 }

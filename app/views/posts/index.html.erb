@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <head>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -45,9 +46,106 @@
         <% if user_signed_in? %>
           <% if current_user.id == post.user_id  %>
             <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary"%>
+=======
+<div class = "background_color">
+  <head>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "home" %>
+    <%= stylesheet_link_tag "posts" %>
+
+  </head>
+
+
+  <body>
+    <!-- Page Content -->
+    <div class="container post">
+      <h1 class="mt-4 mb-3">&nbsp</h1>
+      <div class="jumbotron">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="text" style="margin-bottom: 30px">POST</h1>
+        <div class="col-md-8" style="margin-bottom: 25px;">
+          <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
+        </div>
+
+        <!-- <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a><%= link_to "Home", root_path, class: "nav-item nav-link" %></a>
+          </li>
+          <li class="breadcrumb-item active" style="margin-top: 6px;">POST</li>
+
+        </ol> -->
+
+
+      <!-- <div class="row" style="margin-left: 1px;"> -->
+        <div class="card mb-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <div class="input-group">
+
+              <%= form_for "",url: posts_path, role: "search", method: :get do %>
+                <% text_field_tag :search, @search_term, options = {style:"height:40px;length:300px;border-radius:10px;", placeholder:" Type here...", :size=>"40"} %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
+
+        <tbody>
+          <% @posts.each do |post| %>
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-5">
+                      <%= image_tag post.asset.url(:medium), class: "img-thumbnail" %>
+                    </div>
+                    <div class="col-lg-7">
+                      <h2 class="card-title"><%= post.title%></h2>
+                      <h5 class="card-text" style="margin-bottom: 45px;"><b>Description:&nbsp&nbsp&nbsp&nbsp&nbsp</b>
+                        <%= post.description %></h5>
+                      <h5 class="card-text" style="margin-bottom: 5px;"><b>Rate:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
+                        $<%= post.rate%></h5>
+                      <h5 class="card-text" style="margin-bottom: 20px;"><b>Location:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
+                        <%= post.location %></h5>
+
+                      <%= link_to "Read More", post_path(post), class: "btn btn-info ", style: "margin-right: 20px" %>
+                      <% if user_signed_in? %>
+                        <% if current_user.id == post.user_id  %>
+                          <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary"%>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-muted">
+                  Posted on
+                  <a href="#"><%= post.created_at%></a>
+                  By
+                  <a href="#">
+                    <% ename = post.user.first_name + " " + post.user.last_name %>
+                    <%= link_to ename, user_path(post.user) %>
+                  </a>
+                </div>
+              </div>
+>>>>>>> master
           <% end %>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </tbody>
+
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item">
+            <a class="page-link" href="#">&larr; Last</a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Next &rarr;</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </body>
+
+</div>

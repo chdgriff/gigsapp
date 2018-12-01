@@ -10,6 +10,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w(profile.css)
 Rails.application.config.assets.precompile += %w(home.css)
 Rails.application.config.assets.precompile += %w(header.css)
+Rails.application.config.assets.precompile += %w(posts.css)
 
 
 

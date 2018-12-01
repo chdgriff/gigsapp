@@ -1,3 +1,38 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post h1 {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 4rem;
+}
+.post h2 {
+  font-size: 2.5rem;
+  font-family:'Cabin Sketch', cursive;
+  color: Maroon;
+  text-transform: uppercase;
+  
+}
+.post h3 {
+  font-family:'Special Elite', cursive;
+}
+.post h4 {
+  font-family:'Special Elite', cursive;
+}
+.post h5 {
+  font-family:'Special Elite', cursive;
+}
+.post h6 {
+  font-family:'Special Elite', cursive;
+}
+.post p {
+  font-family:'Special Elite', cursive;
+}
+.post a {
+  font-family: 'Special Elite', cursive;
+}
+
+.post center {
+  font-size: 2.5rem;
+  font-family: 'Cabin Sketch', cursive;
+}
