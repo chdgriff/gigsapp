@@ -40,7 +40,7 @@ class JobApplicationsController < ApplicationController
 
     respond_to do |format|
       if @job_application.save
-        format.html { redirect_to job_applications_url, notice: 'Job application was successfully created.' }
+        format.html { redirect_to job_applications_url }
         format.json { render :show, status: :created, location: @job_application }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class JobApplicationsController < ApplicationController
 
     respond_to do |format|
       if @job_application.update(job_application_params)
-        format.html { redirect_to job_applications_url, notice: 'Job application was successfully updated.' }
+        format.html { redirect_to job_applications_url}
         format.json { render :show, status: :ok, location: @job_application }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class JobApplicationsController < ApplicationController
   def destroy
     @job_application.destroy
     respond_to do |format|
-      format.html { redirect_to job_applications_url, notice: 'Job application was successfully destroyed.' }
+      format.html { redirect_to job_applications_url}
       format.json { head :no_content }
     end
   end
