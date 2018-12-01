@@ -3,7 +3,6 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
-    <%= stylesheet_link_tag "header" %>
     <%= stylesheet_link_tag "home" %>
     <%= stylesheet_link_tag "posts" %>
 
@@ -22,13 +21,13 @@
           <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
         </div>
 
-        <ol class="breadcrumb">
+        <!-- <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a><%= link_to "Home", root_path, class: "nav-item nav-link" %></a>
           </li>
           <li class="breadcrumb-item active" style="margin-top: 6px;">POST</li>
 
-        </ol>
+        </ol> -->
 
 
       <!-- <div class="row" style="margin-left: 1px;"> -->
@@ -55,11 +54,11 @@
                     </div>
                     <div class="col-lg-7">
                       <h2 class="card-title"><%= post.title%></h2>
-                      <h5 class="card-text" style="margin-bottom: 45px;"><b>Description:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
+                      <h5 class="card-text" style="margin-bottom: 45px;"><b>Description:&nbsp&nbsp&nbsp&nbsp&nbsp</b>
                         <%= post.description %></h5>
-                      <h5 class="card-text" style="margin-bottom: 5px;"><b>Raiting:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
-                        <%= post.rate%></h5>
-                      <h5 class="card-text" style="margin-bottom: 20px;"><b>Location:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
+                      <h5 class="card-text" style="margin-bottom: 5px;"><b>Rate:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
+                        $<%= post.rate%></h5>
+                      <h5 class="card-text" style="margin-bottom: 20px;"><b>Location:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
                         <%= post.location %></h5>
 
                       <%= link_to "Read More", post_path(post), class: "btn btn-info ", style: "margin-right: 20px" %>
