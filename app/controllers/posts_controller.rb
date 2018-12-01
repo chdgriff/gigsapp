@@ -29,7 +29,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
      @record = Record.new
-
+    if @record.save
+    ModelMailer.new_record_notification(@record).deliver
+    redirect_to @record
+      end
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: "Post was successfully created." }
