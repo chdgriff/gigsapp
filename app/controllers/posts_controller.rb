@@ -76,7 +76,10 @@ class PostsController < ApplicationController
         redirect_to action: "index"
       end
     end
-
+def new_record_notification(record)
+  @record = record
+  mail to: "recipient@MYDOMAIN.com", subject: "Success! You did it."
+end
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :description, :location, :rate, :user_id, :asset)
