@@ -1,10 +1,7 @@
-<div class = "background_color">
+<div class = "">
   <head>
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
-    <%= stylesheet_link_tag "header" %>
-    <%= stylesheet_link_tag "home" %>
+    <%= stylesheet_link_tag "posts" %>
 
   </head>
 
@@ -24,28 +21,28 @@
         </div>
       <% end %>
 
-      <div class="container-fluid">
         <div class="row field form-group">
-          <%# <%= form.label :title %>
+          <h5><%= form.label :title %></h5>
           <%= form.text_field :title, class: "form-control form-control-lg", placeholder: "Job Title" %>
         </div>
 
         <div class="row field form-group">
-          <%= form.label :description %>
-          <%= form.text_area :description, class: "form-control", placeholder: "Job Description"%>
+          <h5><%= form.label :description %></h5>
+          <%= form.text_area :description, rows: "7", class: "form-control", placeholder: "Job Description"%>
         </div>
 
-        <div class="row">
-          <div class="col-6 pl-0 form-group field">
-            <%= form.label :location %>
-            <%= form.text_field :location, class: "form-control", placeholder: "Job Location"%>
+        <div class="form-row">
+          <div class="col">
+            <div class="form-group field">
+              <h5><%= form.label :location %></h5>
+              <%= form.text_field :location, class: "form-control", placeholder: "Job Location"%>
+            </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-3 pl-0 form-group field">
-            <%= form.label :rate %>
-            <%= form.text_field :rate, class: "form-control", placeholder: "Job Rate"%>
+          <div class="col">
+            <div class="form-group field">
+              <h5><%= form.label :rate %></h5>
+              <%= form.text_field :rate, class: "form-control", placeholder: "Job Rate"%>
+            </div>
           </div>
         </div>
 
@@ -63,9 +60,9 @@
         <br />
 
         <div class="row actions">
-          <%= form.submit "Save Gig", class: "btn btn-success" %>
+          <%= form.submit "Save Gig", class: "btn2 btn-success btn-block btn-lg save_post_btn" %>
         </div>
-      </div>
+
     <% end %>
   </body>
 </div>
