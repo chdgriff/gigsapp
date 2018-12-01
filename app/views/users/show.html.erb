@@ -42,15 +42,15 @@
                         <h5 style="margin-top: 30px;">Rating:</h5>
                         <b><%= @user %> "/ 10" </b>
                       </div>
-                            <% if !(@user.linkedin.blank?) %>
-                              <div class="row" style="margin-top: 60px;">
-        	                       <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), @user.linkedin) %>
-                              </div>
-                            <% end %>
               </div>
-                      <hr class="featurette-divider">
+              <% if !(@user.linkedin.blank?) %>
+              <div class="row" style="margin-top: 60px;">
+              <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), @user.linkedin) %>
+              </div>
+              <% end %>
+                    <hr class="featurette-divider">
                     <div class="row">
-                        <div class="col-lg-10" style="text-align: right;">
+                        <div class="col-lg-10" style="text-align: left;">
                           <h2> Bio </h2>
                           <b><%= @user.bio %></b>
                         </div>
