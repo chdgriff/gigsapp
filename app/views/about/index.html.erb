@@ -1,42 +1,50 @@
-<head>
+<div class = "background_color">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "job_applications" %>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <%= stylesheet_link_tag "header" %>
-</head>
-<div class = "headerbreak"></div>
-<body>
+  </head>
 
-  <div class="jumbotron">
-      <h2>Gigs | Connects Employers and Employees</h2>
-      <p>Are you ready to become the next Giggler?</p>
 
-      <p>An online platform that connects gigs employers and employees.
-        Gigs employers and employees have to setup their profiles to build their
-        reputation and trustfulness. Empolyees can post review and rate their employers
-        and vice versa.</p>
+  <body>
+    <!-- Page Content -->
+    <div class="container post about">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
 
-        <h5>How it works?</h5>
-        <ol>
-          <li>Gig employers post a job including: duty, requirement, rate and etc...</li>
-          <li>Employees: search for a gig and apply if they want to take the job.</li>
-          (pretty much like the gigs section on Craigslist)
-        </ol>
+        <h1>Gigs</h1>
+        <h2>Connects Employers and Employees</h2>
+        <h3 style="margin-top: 30px;">Are you ready to become the next Giggler?</h3>
 
-        <h5>Why this matter?</h5>
-        <ul>
-        <li>Employers can build good profolio so they can hire people easier.</li>
-        <li>Workers have less protection working on Gigs.</li>
-        <li>Workers can report scam and help each other to avoid being scammed.</li>
-        </ul>
+        <h5>An online platform that connects gigs employers and employees.
+          Gigs employers and employees have to setup their profiles to build their
+          reputation and trustfulness. Empolyees can post review and rate their employers
+          and vice versa.</h5>
 
-    <%= link_to new_user_registration_path do %>
-      	<button type="button" class="btn2 btn-warning btn-lg">Get started!</button>
-    <% end %>
+          <h3>How it works?</h3>
+          <ol>
+            <li><h5>Gig employers post a job including: duty, requirement, rate and etc...</h5></li>
+            <li><h5>Employees: search for a gig and apply if they want to take the job.</h5></li>
+            <h5>(pretty much like the gigs section on Craigslist)</h5>
+          </ol>
 
-    <%= link_to posts_path do %>
-      	<button type="button" class="btn2 btn-primary btn-lg">Checkout Gigs!</button>
-    <% end %>
+          <h3>Why this matter?</h3>
+          <ul>
+          <li><h5>Employers can build good profolio so they can hire people easier.</h5></li>
+          <li><h5>Workers have less protection working on Gigs.</h5></li>
+          <li><h5>Workers can report scam and help each other to avoid being scammed.</h5></li>
+          </ul>
 
-  </div>
+          <%= link_to new_user_registration_path do %>
+            	<button type="button" class="btn2 btn-warning btn-lg">Get started!</button>
+          <% end %>
 
-</body>
+          <%= link_to posts_path do %>
+            	<button type="button" class="btn2 btn-primary btn-lg">Checkout Gigs!</button>
+          <% end %>
+
+      </div>
+      <hr><hr><hr><hr>
+    </div>
+  </body>
+</div>
