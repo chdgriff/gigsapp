@@ -1,9 +1,6 @@
 <div class = "background_color">
   <head>
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
-
     <%= stylesheet_link_tag "posts" %>
 
   </head>
@@ -56,7 +53,7 @@
                       <%= link_to "Read More", post_path(post), class: "btn btn-info ", style: "margin-right: 20px" %>
                       <% if user_signed_in? %>
                         <% if current_user.id == post.user_id  %>
-                          <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary"%>
+                          <%= link_to "Edit", edit_post_path(post), class: "btn btn-warning"%>
                         <% end %>
                       <% end %>
                     </div>
@@ -64,7 +61,7 @@
                 </div>
                 <div class="card-footer text-muted">
                   Posted on
-                  <a href="#"><%= post.created_at%></a>
+                  <%= post.created_at%>
                   By
                   <a href="#">
                     <% ename = post.user.first_name + " " + post.user.last_name %>

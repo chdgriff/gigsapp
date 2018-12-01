@@ -1,10 +1,7 @@
 <div class = "background_color">
   <head>
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
-    <%= stylesheet_link_tag "header" %>
-    <%= stylesheet_link_tag "home" %>
+    <%= stylesheet_link_tag "posts" %>
 
   </head>
 
@@ -18,12 +15,6 @@
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="text" style="margin-bottom: 30px">New Gigs</h1>
 
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a><%= link_to "Home", root_path, class: "nav-item nav-link" %></a>
-          </li>
-          <li class="breadcrumb-item active" style="margin-top: 6px;">New Gigs</li>
-        </ol>
 
         <%= render 'form', post: @post %>
         <%= link_to 'Back', posts_path, class: "btn btn-primary mt-3" %>
