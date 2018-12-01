@@ -1,39 +1,55 @@
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
-  <%= stylesheet_link_tag "posts" %>
+<div class = "background_color">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "job_applications" %>
 
-</head>
-<div class = "headerbreak"></div>
-<body>
+  </head>
 
-  <div class="mx-auto post" style="width: 50%;">
-    <h1>Login</h1>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-group">
-        <h5><%= f.label :email %></h5>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-      </div>
+  <body>
+    <!-- Page Content -->
+    <div class="container post">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
 
-      <div class="form-group">
-        <h5><%= f.label :password %></h5>
-        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
-      </div>
+        <p id="notice"><%= notice %></p>
 
-      <% if devise_mapping.rememberable? -%>
-        <div class="form-group">
-          <p><%= f.check_box :remember_me %>
-          <%= f.label :remember_me %></p>
+        <h1 style="margin-bottom: 30px;">Log In</h1>
+
+        <center>
+          <div class="card mb-4" style="width: 20rem;">
+            <div class="card-body">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="form-group">
+                  <h3><%= f.label :email %></h3>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                  <h3><%= f.label :password %></h3>
+                  <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+                </div>
+
+                <% if devise_mapping.rememberable? -%>
+                  <div class="form-group">
+                    <h6><%= f.check_box :remember_me %>
+                    <%= f.label :remember_me %></h6>
+                  </div>
+                <% end -%>
+
+                <div class="actions">
+                  <p><%= f.submit "Log in", class: "btn btn-primary btn-block" %></p>
+                </div>
+              <% end %>
+              <h6><%= render "users/shared/links" %></h6>
+              <%= devise_error_messages! %>
+
+            </div>
+          </div>
+
+        </center>
         </div>
-      <% end -%>
 
-      <div class="actions">
-        <p><%= f.submit "Log in", class: "btn btn-primary btn-block" %></p>
-      </div>
-    <% end %>
-
-    <%= render "users/shared/links" %>
-    <%= devise_error_messages! %>
-  </div>
-
-</body>
+      <hr><hr><hr><hr>
+    </div>
+  </body>
+</div>
