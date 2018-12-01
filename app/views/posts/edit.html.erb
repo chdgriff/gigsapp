@@ -3,11 +3,14 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
     <%= stylesheet_link_tag "posts" %>
 
+
   </head>
-
-  <div class = "headerbreak"></div>
   <body>
+    <div class="container post">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
 
+<<<<<<< HEAD
     <div class="container post jumbotron">
       <h1 class="" style="margin-bottom: 10px">Edit Gigs</h1>
 
@@ -17,6 +20,21 @@
       <%= link_to 'Back', posts_path, class: "btn btn-warning"%>
     <%= link_to 'Delete', @post, class: 'btn btn-danger',
         method: :delete, data: { confirm: 'Are you sure?' } %>
+=======
+        <div class="container jumbotron" style="margin-top: 30px">
+        <h1>Edit Gig</h1>
+        <%= render 'form', post: @post %>
+
+        <div class=mt-3>
+        <%= link_to 'Delete', @post, class: 'btn btn-danger',
+            method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Back', posts_path, class: "btn btn-primary"%>
+        </div>
+      </div>
+>>>>>>> applicationui
     </div>
+    <hr><hr><hr>
+
   </body>
+
 </div>
