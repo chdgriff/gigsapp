@@ -1,16 +1,35 @@
-<head>
+<div class = "background_color">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "job_applications" %>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <%= stylesheet_link_tag "header" %>
+  </head>
 
-</head>
-<div class = "headerbreak"></div>
-<body>
 
-  <h1>Editing Job Application</h1>
+  <body>
+    <!-- Page Content -->
+    <div class="container post">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
 
-  <%= render 'form', job_application: @job_application %>
-  <br>
-  <%= link_to 'Cancel', job_applications_path, class: "btn btn-danger" %>
+        <p id="notice"><%= notice %></p>
 
-</body>
+        <h1 style="margin-bottom: 30px;">Editing Job Application</h1>
+
+        <center>
+          <div class="card mb-4" style="width: 20rem;">
+            <div class="card-body">
+              <h3><%= render 'form', job_application: @job_application %></h3>
+              <%= link_to 'Cancel', job_applications_path, class: "btn btn-danger" %>
+
+            </div>
+          </div>
+
+        </center>
+        </div>
+
+      </div>
+      <hr><hr><hr><hr><hr><hr><hr>
+    </div>
+  </body>
+</div>
