@@ -8,20 +8,18 @@
 
   <body>
     <!-- Page Content -->
-    <div class="container font">
-      <h1 class="mt-4 mb-3">&nbsp</h1>
+    <div class="container post">
       <div class="jumbotron">
 
-        <!-- Page Heading/Breadcrumbs -->
-        <h1 class="text" style="margin-bottom: 30px">New Gigs</h1>
-
+        <!-- Page Heading -->
+        <h1 class="" style="margin-bottom: 10px">New Gigs</h1>
 
         <%= render 'form', post: @post %>
-        <%= link_to 'Back', posts_path, class: "btn btn-primary mt-3" %>
+        <br />
+        <%= link_to 'Back', posts_path, class: "btn btn-warning" %>
 
 
       </div>
-
     </div>
   </body>
   <!-- Footer -->
