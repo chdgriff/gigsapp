@@ -11,7 +11,7 @@
   font-family:'Cabin Sketch', cursive;
   color: Maroon;
   text-transform: uppercase;
-  
+
 }
 .post h3 {
   font-family:'Special Elite', cursive;
@@ -35,4 +35,12 @@
 .post center {
   font-size: 2.5rem;
   font-family: 'Cabin Sketch', cursive;
+}
+
+.jumbotron{
+  background-color:#FFFFFF;
+}
+
+.background_color{
+  background-image: image-url('wood.jpg');
 }

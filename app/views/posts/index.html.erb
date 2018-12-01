@@ -3,7 +3,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
-    <%= stylesheet_link_tag "home" %>
+
     <%= stylesheet_link_tag "posts" %>
 
   </head>
@@ -16,10 +16,7 @@
       <div class="jumbotron">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="text" style="margin-bottom: 30px">POST</h1>
-        <div class="col-md-8" style="margin-bottom: 25px;">
-          <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
-        </div>
+        <h1 class="text" style="margin-bottom: 10px">POST</h1>
 
         <!-- <ol class="breadcrumb">
           <li class="breadcrumb-item">
@@ -28,7 +25,6 @@
           <li class="breadcrumb-item active" style="margin-top: 6px;">POST</li>
 
         </ol> -->
-
 
       <!-- <div class="row" style="margin-left: 1px;"> -->
         <div class="card mb-4">
@@ -43,6 +39,10 @@
           </div>
         </div>
       <!-- </div> -->
+
+      <div class="col-md-8" align="center" style="margin-bottom: 30px;">
+        <%= link_to "New Post", new_post_path, class: "btn2 btn-success btn-block float-center"%>
+      </div>
 
         <tbody>
           <% @posts.each do |post| %>
