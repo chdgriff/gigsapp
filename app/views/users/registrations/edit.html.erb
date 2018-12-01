@@ -1,15 +1,17 @@
-<head>
+<div class = "background_color">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "profile" %>
 
-  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
-  <%= stylesheet_link_tag "posts" %>
 
-</head>
-<div class = "headerbreak"></div>
-<body>
-  <div class="mx-auto" style="width: 80%;">
-    <div class="container post align-middle">
-      <div class="jumbotron" style="margin-top: 30px;">
-        <h1 class="font-weight-bold text-center" style="margin-bottom:50px;">Edit Profile</h1>
+  </head>
+  <body>
+    <div class="container post">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
+
+        <div class="container post jumbotron">
+          <h1 class="font-weight-bold text-center" style="margin-bottom:50px;">Edit Profile</h1>
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= devise_error_messages! %>
@@ -19,38 +21,38 @@
               <div class="form-group form-row">
                 <label for="Name" class="col-sm-2">Name</label>
                 <div class="col">
-                  <%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: "First Name" %>
+                  <h4><%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: "First Name" %></h4>
                 </div>
                 <div class="col">
-                  <%= f.text_field :last_name, autofocus: true, class: 'form-control', placeholder:"Last Name" %>
+                  <h4><%= f.text_field :last_name, autofocus: true, class: 'form-control', placeholder:"Last Name" %></h4>
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col">
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "e.g.love_gigs@example.com" %>
+                  <h4><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "e.g.love_gigs@example.com" %></h4>
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="username" class="col-md-2 col-form-label">Username</label>
                 <div class="col-sm">
-                  <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder:"e.g. Gig Master" %>
+                  <h4><%= f.text_field :username, autofocus: true, class: 'form-control', placeholder:"e.g. Gig Master" %></h4>
                 </div>
               </div>
 
                 <div class="form-group row">
                   <label for="profile_image" class="col-sm-2 col-form-label">Profile Image</label>
                   <div class="col">
-                    <%= f.file_field :profile_image%>
+                    <h6><%= f.file_field :profile_image%></h6>
                   </div>
                 </div>
 
               <div class="form-group row">
                 <label for="Bio" class="col-sm-2 col-form-label">Bio</label>
                 <div class="col">
-                  <%= f.text_area :bio, autofocus: true , class: 'form-control', placeholder: "Briefly describe yourself" %>
+                  <h4><%= f.text_area :bio, autofocus: true , class: 'form-control', placeholder: "Briefly describe yourself" %></h4>
                 </div>
               </div>
 
@@ -58,22 +60,22 @@
                 <div class="form-group row">
                     <label for="address1" class="col-2">Address</label>
                   <div class="col-10">
-                    <%= f.text_field :address, autofocus: true, class: 'form-control', placeholder: "1234 Gigs St" %>
+                    <h4><%= f.text_field :address, autofocus: true, class: 'form-control', placeholder: "1234 Gigs St" %></h4>
                     <div class="row mt-2">
                       <div class="col">
-                        <%= f.text_field :address2, autofocus: true, class: 'form-control',
-                            placeholder: "Apartment, studio, or floor" %>
+                        <h4><%= f.text_field :address2, autofocus: true, class: 'form-control',
+                            placeholder: "Apartment, studio, or floor" %></h4>
                       </div>
                     </div>
                     <div class="form-group form-row mt-2">
                       <div class="col-5">
-                        <%= f.text_field :city, autofocus: true, class: 'form-control', placeholder: "City" %>
+                        <h4><%= f.text_field :city, autofocus: true, class: 'form-control', placeholder: "City" %></h4>
                       </div>
                       <div class="col-3">
-                        <%= f.text_field :state, autofocus: true, class: 'form-control', placeholder: "State" %>
+                        <h4><%= f.text_field :state, autofocus: true, class: 'form-control', placeholder: "State" %></h4>
                       </div>
                       <div class="col-4">
-                        <%= f.text_field :zip, autofocus: true, class: 'form-control', placeholder: "Zip" %>
+                        <h4><%= f.text_field :zip, autofocus: true, class: 'form-control', placeholder: "Zip" %></h4>
                       </div>
                     </div>
                   </div>
@@ -83,7 +85,7 @@
               <div class="form-group row">
                 <label for="username" class="col-sm-2">LinkedIn Profile URL</label>
                 <div class="col-sm-10">
-                  <%= f.text_field :linkedin, autofocus: true, class: 'form-control', placeholder:"e.g. https://www.linkedin.com/in/name/" %>
+                  <h4><%= f.text_field :linkedin, autofocus: true, class: 'form-control', placeholder:"e.g. https://www.linkedin.com/in/name/" %></h4>
                 </div>
               </div>
 
@@ -95,65 +97,70 @@
               </div>
             </div> -->
 
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-            <% end %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
 
-            <update_password class="form-group p-5">
-                <h3 class="row">Change Password</h3>
-              <div class="row">
+              <update_password class="form-group p-5">
+                <h2 class="row">Change Password</h2>
+                <div class="row">
+                  <div class="col">
+                    <label for="new_password">Password</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <h4><%= f.password_field :password, autocomplete: "new-password",
+                        class: 'form-control', placeholder: "(leave blank if you don't want to change it)" %></h4>
+                    <% if @minimum_password_length %>
+                      <br />
+                      <h6><em><%= @minimum_password_length %> characters minimum</em></h6>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="confirm_new_password">Password Confirmation</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+                  </div>
+                </div>
+              </update_password>
+
+              <div class="form-group form-row pt-5">
+                <div class="col-2">
+                  <label for="confirm_password">Current Password</label>
+                </div>
                 <div class="col">
-                  <label for="new_password">Password</label>
+                  <h4><%= f.password_field :current_password, class: 'form-control',
+                      placeholder: "(Enter current password to confirm your changes)" %></h4>
                 </div>
-                <div class="col-sm-10">
-                  <%= f.password_field :password, autocomplete: "new-password",
-                      class: 'form-control', placeholder: "(leave blank if you don't want to change it)" %>
-                  <% if @minimum_password_length %>
-                    <br />
-                    <em><%= @minimum_password_length %> characters minimum</em>
-                  <% end %>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <label for="confirm_new_password">Password Confirmation</label>
-                </div>
-                <div class="col-sm-10">
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
-                </div>
-              </div>
-            </update_password>
 
-            <div class="form-group form-row pt-5">
-              <div class="col-2">
-                <label for="confirm_password">Current Password</label>
               </div>
-              <div class="col">
-                <%= f.password_field :current_password, class: 'form-control',
-                    placeholder: "(Enter current password to confirm your changes)" %>
-              </div>
-
-            </div>
             </form>
 
             <div>
               <p><%= f.submit "Update Profile", class: "btn btn-success btn-block"%></p>
             </div>
 
-          <br />
-          <div>
-            <%= link_to "Back", :back, class: "btn btn-primary"%>
-            <%= devise_error_messages! %>
+            <br/>
+            <div>
+              <%= link_to "Back", :back, class: "btn btn-primary"%>
+              <%= devise_error_messages! %>
 
-            <%= link_to "Delete my account", registration_path(resource_name),
-                 data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"%>
+              <%= link_to "Delete my account", registration_path(resource_name),
+                   data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"%>
+            </div>
+
+
+            <% end %>
+            <% end %>
+
           </div>
-
+        </div>
+        <hr><hr><hr><hr><hr>
 
       </div>
-    </div>
-  </div>
-  <% end %>
-  <% end %>
 
-</body>
+    </body>
+
+</div>
