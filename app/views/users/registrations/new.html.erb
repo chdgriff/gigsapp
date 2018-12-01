@@ -18,35 +18,35 @@
 
             <form>
               <div class="form-group row">
-                <label for="Name" class="col-sm-2 col-form-label">Name</label>
+                <label for="Name" class="col-sm-2">Name</label>
 
                 <div class="col">
-                  <%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: "First Name" %>
+                  <h4><%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: "First Name" %></h4>
                 </div>
 
                 <div class="col">
-                  <%= f.text_field :last_name, autofocus: true, class: 'form-control', placeholder:"Last Name" %>
+                  <h4><%= f.text_field :last_name, autofocus: true, class: 'form-control', placeholder:"Last Name" %></h4>
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "love_gigs@example.com" %>
+                  <h4><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "love_gigs@example.com" %></h4>
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="username" class="col-sm-2 col-form-label">Username</label>
                 <div class="col-sm-10">
-                  <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder:"Gig Master" %>
+                  <h4><%= f.text_field :username, autofocus: true, class: 'form-control', placeholder:"Gig Master" %></h4>
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                  <% if @minimum_password_length %>
+                  <h6><% if @minimum_password_length %><h6>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>
                   <% end %><br />
                   <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: "Enter your password" %>
@@ -54,19 +54,19 @@
               </div>
 
               <div class="form-group row">
-                <label for="inputConfirmed" class="col-sm-2 col-form-label">Confirmed Password</label>
+                <label for="inputConfirmed" class="col-sm-2">Confirmed Password</label>
                 <div class="col-sm-10">
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: "Enter your confirmed password" %>
+                  <h4><%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: "Enter your confirmed password" %></h4>
                 </div>
               </div>
 
             <div class="form-group row">
-              <div class="col-sm-2"><p>Age</p></div>
+              <div class="col-sm-2"><label>Age</label></div>
               <div class="col-sm-10">
                 <div class="form-check">
                   <%= f.check_box :age %>
                   <label class="form-check-label" for="gridCheck1">
-                    18+
+                    <h5>18+</h5>
                   </label>
                 </div>
               </div>
@@ -80,12 +80,12 @@
             </div> -->
 
             <div class="form-group row">
-              <div class="col-sm-2"><p>Terms & conditions</p></div>
+              <div class="col-sm-2"><label>Terms & conditions</label></div>
               <div class="col-sm-10">
-                <div class="form-check">
+                <div class="form-check">&nbsp&nbsp&nbsp&nbsp
                   <input class="form-check-input" type="checkbox" id="invalidCheck" required>
                   <label class="form-check-label" for="invalidCheck">
-                    Agree
+                    <h5>Agree</h5>
                   </label>
                 </div>
               </div>
