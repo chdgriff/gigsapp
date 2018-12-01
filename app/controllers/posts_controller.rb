@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @posts = Post.where(["description LIKE ?","%#{params[:search]}%"])
     @posts_find = Post.all
   end
-
+ 
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+     @record = Record.new
 
     respond_to do |format|
       if @post.save
