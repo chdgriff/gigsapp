@@ -35,6 +35,7 @@
                       <%= image_tag @user.profile_image.url(:medium)%>
                       <% end %>
                       </div>
+                    </div>
                       <div class="col-lg-6" style="text-align: left;">
                         <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.first_name%> <%= @user.last_name %></h4>
                         <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>
@@ -46,6 +47,7 @@
         	                       <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), @user.linkedin) %>
                               </div>
                             <% end %>
+              </div>
                       <hr class="featurette-divider">
                     <div class="row">
                         <div class="col-lg-10" style="text-align: right;">
