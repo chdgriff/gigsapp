@@ -21,10 +21,16 @@
               <%= form_for "",url: posts_path, role: "search", method: :get do %>
                 <% text_field_tag :search, @search_term, options = {style:"height:40px;length:300px;border-radius:10px;", placeholder:" Type here...", :size=>"40"} %>
               <% end %>
+              <div class="new_post_btn" align="center" style="margin-left: 10px;">
+                <%= link_to "GO", posts_path, class: "btn btn-info " %>
+              </div>
+              <div class="new_post_btn" align="center">
+                <%= link_to "Search Post With Filter", new_search_path, class: "btn btn-warning" %>
+              </div>
             </div>
           </div>
         </div>
-        <%= link_to "Advance Search", new_search_path %>
+
       <div class="new_post_btn" align="center" style="margin-bottom: 30px;">
         <%= link_to "New Post", new_post_path, class: "btn2 btn-success btn-block btn-lg"%>
       </div>
