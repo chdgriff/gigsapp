@@ -45,6 +45,11 @@
           </div>
           <% end %>
         </div>
+        <div class="row">
+        <div class="col-lg-10" style="text-align: right;">
+          <h2> Bio </h2>
+          <b><%= @user.bio %></b>
+      </div>
     	</div>
         <div class="col-lg-6" style="text-align: left;">
           <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.first_name%> <%= @user.last_name %></h4>
@@ -60,11 +65,7 @@
      	<div class="col-lg-10" style="text-align: right;">
      	</div> -->
 
-     	<div class="row">
-      	<div class="col-lg-10" style="text-align: left;">
-      		<h2> Bio </h2>
-      		<b><%= @user.bio %></b>
-   		</div>
+     	
        <% if user_signed_in? %>
           <% if current_user.id == @user.id  %>
            <div class="col-lg-10" style="text-align: left;">
