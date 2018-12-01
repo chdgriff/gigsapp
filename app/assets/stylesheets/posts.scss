@@ -5,6 +5,7 @@
 .post h1 {
   font-family: 'Luckiest Guy', cursive;
   font-size: 4rem;
+  text-align: center
 }
 .post h2 {
   font-size: 2.5rem;
@@ -31,16 +32,29 @@
 .post a {
   font-family: 'Special Elite', cursive;
 }
+.post label {
+  font-family:'Special Elite', cursive;
+}
 
 .post center {
   font-size: 2.5rem;
   font-family: 'Cabin Sketch', cursive;
 }
 
+.new_post_btn {
+  font-size: 1.6rem;
+  font-weight: bolder;
+}
+
+.save_post_btn {
+  font-size: 1.6rem;
+  font-family: 'Special Elite', cursive;
+}
+
 .jumbotron{
-  background-color:#FFFFFF;
+  background-color: White;
 }
 
 .background_color{
-  background-image: image-url('wood.jpg');
+  background-image: image-url('cloth2.jpg');
 }
