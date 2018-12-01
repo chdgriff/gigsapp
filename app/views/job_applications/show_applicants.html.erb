@@ -30,7 +30,7 @@
 
             <td>
            <%= link_to 'Accept', post_path(@post), class: "btn btn-succsess" %>
-              <%=ModelMailer.new_record_notification(@record).deliver%>
+              
               <%= link_to 'Decline', post_path(@post), class: "btn btn-danger" %>
             </td>
 
@@ -42,5 +42,5 @@
     </tbody>
 </table>
 
-
+<%=ModelMailer.new_record_notification(@record).deliver%>
 <%= link_to 'Back', post_path(@post), class: "btn btn-warning" %>
