@@ -45,29 +45,13 @@
           </div>
           <% end %>
         </div>
+        <hr class="featurette-divider">
         <div class="row">
         <div class="col-lg-10" style="text-align: right;">
           <h2> Bio </h2>
           <b><%= @user.bio %></b>
       </div>
-    	</div>
-    </div>
-        <div class="col-lg-6" style="text-align: left;">
-          <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.first_name%> <%= @user.last_name %></h4>
-          <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>
-
-          <h5 style="margin-top: 30px;">Rating:</h5>
-          <b><%= @user %> "/ 10" </b>
-
-          <hr class="featurette-divider">
-		<!-- <div class="col-lg-10" style="text-align: right;">
-         <button id= jobs class="jobs">Past Jobs</button>
-     	</div>
-     	<div class="col-lg-10" style="text-align: right;">
-     	</div> -->
-
-     	
-       <% if user_signed_in? %>
+      <% if user_signed_in? %>
           <% if current_user.id == @user.id  %>
            <div class="col-lg-10" style="text-align: left;">
             <hr class="featurette-divider">
@@ -78,6 +62,24 @@
         </div>
           <%end%>
           <%end%>
+    	</div>
+    </div>
+        <div class="col-lg-6" style="text-align: left;">
+          <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.first_name%> <%= @user.last_name %></h4>
+          <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>
+
+          <h5 style="margin-top: 30px;">Rating:</h5>
+          <b><%= @user %> "/ 10" </b>
+
+          
+		<!-- <div class="col-lg-10" style="text-align: right;">
+         <button id= jobs class="jobs">Past Jobs</button>
+     	</div>
+     	<div class="col-lg-10" style="text-align: right;">
+     	</div> -->
+
+     	
+       
         </div>
         </div>
         </div>
