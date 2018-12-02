@@ -59,4 +59,7 @@ td {
 body {
   background-image: image-url('cloth2.jpg');
 }
-
+tbody {
+    height: 200px;
+    overflow-y: scroll;
+}
