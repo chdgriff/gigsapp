@@ -37,7 +37,7 @@
                       </div>
                     </div>
                       <div class="col-lg-6" style="text-align: left;">
-                        <h4 style="margin-top: 20px;margin-bottom: 10px;color: #1a75bb"><%= @user.first_name%> <%= @user.last_name %></h4>
+                        <h4 style="margin-top: 20px;margin-bottom: 10px;color: black"><%= @user.first_name%> <%= @user.last_name %></h4>
                         <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>
                         <h5 style="margin-top: 30px;">Rating:</h5>
                         <b><%= @user %> "/ 10" </b>
@@ -51,28 +51,23 @@
                     <hr class="featurette-divider">
                     <div class="row">
                         <div class="col-lg-10" style="text-align: left;">
-                          <h2> Bio </h2>
                           <b><%= @user.bio %></b>
                         </div>
                     </div>
-                         <% if user_signed_in? %>
-                         <% if current_user.id == @user.id  %>
-                      <div class="row">
-                          <div class="col-lg-10" style="text-align: left;">
-                            <hr class="featurette-divider">
-                            <h5> Private Data </h5>
-                            <div>Address <%= @user.address %>, <%= @user.city %>, <%= @user.state %> <%= @user.zip %></div>
-                            <%= image_tag("outline_mail_outline_black_18dp.png", :alt => "profile")%><%= @user.email %>
-                          </div>
-                    </div>
-                    <%end%>
-                   <%end%>
-    	           </div>
-              </div>
-          
         </div>
     </div>
 </div>       
+ <% if user_signed_in? %>
+<% if current_user.id == @user.id  %>
+ <div class="jumbotron" style="margin-top: 30px">
+     <div class="row">
+          <div class="col-lg-10" style="text-align: left;">
+          <h5> Private Data </h5>
+          <div>Address <%= @user.address %>, <%= @user.city %>, <%= @user.state %> <%= @user.zip %></div>
+          <%= image_tag("outline_mail_outline_black_18dp.png", :alt => "profile")%><%= @user.email %>
+          </div>
+ </div>
+ <%end%>
 		<!-- <div class="col-lg-10" style="text-align: right;">
          <button id= jobs class="jobs">Past Jobs</button>
      	</div>
