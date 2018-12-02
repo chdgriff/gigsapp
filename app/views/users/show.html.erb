@@ -40,33 +40,32 @@
                         <h4 style="margin-top: 20px;margin-bottom: 10px;color: black"><%= @user.first_name%> <%= @user.last_name %></h4>
                         <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>, <%= @user.state %>
                         <h5 style="margin-top: 30px;">Rating: <%= @user %> "/ 10"</h5>
-
-                          <table class="table table-striped">
-  <thead>
-
-    <tr>
-      <th>Previous Jobs for <%= @user.first_name %> <%= @user.last_name %></th>
-  
-      <th colspan="3"></th>
-    </tr>
-  </thead>
- <tbody>
-    <% @posts.each do |post| %>
-    <%if @user.id == post.user_id %>
-      <tr>
-        <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.location %></td>
-        <td><%= post.rate %></td>
-        <td><%= link_to 'View', post %></td>
-       </tr>
-    <%end%>
-  </tbody>
-  <%end%>
-</table>
-
-                      </div>
+                      <table class="table table-striped">
+                    </div>
+                    <div class="col-lg-6">
+                          <thead>
+                            <tr>
+                              <th>Previous Jobs for <%= @user.first_name %> <%= @user.last_name %></th>
+                          
+                              <th colspan="3"></th>
+                            </tr>
+                          </thead>
+                         <tbody>
+                            <% @posts.each do |post| %>
+                            <%if @user.id == post.user_id %>
+                              <tr>
+                                <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
+                                <td><%= post.title %></td>
+                                <td><%= post.description %></td>
+                                <td><%= post.location %></td>
+                                <td><%= post.rate %></td>
+                                <td><%= link_to 'View', post %></td>
+                               </tr>
+                            <%end%>
+                          </tbody>
+                          <%end%>
+                        </table>
+                   </div>
               </div>
               <% if !(@user.linkedin.blank?) %>
               <div class="row" style="margin-top: 60px;">
