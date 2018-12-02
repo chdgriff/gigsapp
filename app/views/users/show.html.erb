@@ -36,13 +36,11 @@
                       <% end %>
                       </div>
                     </div>
-                      <div class="col-lg-6" style="text-align: left;">
+                      <div class="col-lg-6">
                         <h4 style="margin-top: 20px;margin-bottom: 10px;color: black"><%= @user.first_name%> <%= @user.last_name %></h4>
                         <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>, <%= @user.state %>
                         <h5 style="margin-top: 30px;">Rating: <%= @user %> "/ 10"</h5>
                       <table class="table table-striped">
-                    </div>
-                    <div class="col-lg-6">
                           <thead>
                             <tr>
                               <th>Previous Jobs for <%= @user.first_name %> <%= @user.last_name %></th>
