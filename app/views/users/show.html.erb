@@ -40,27 +40,6 @@
                         <h4 style="margin-top: 20px;margin-bottom: 10px;color: black"><%= @user.first_name%> <%= @user.last_name %></h4>
                         <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>, <%= @user.state %>
                         <h5 style="margin-top: 30px;">Rating: <%= @user %> "/ 10"</h5>
-                        <div style="margin-top: 20px">
-                        <b>  Previous Jobs for <%= @user.first_name %> <%= @user.last_name %></b>
-                        </div>
-                      <table class="table" >
-                          <thead>
-                          </thead>
-                         <tbody style="height= 25px; overflow-y= scroll;">
-                            <% @posts.each do |post| %>
-                            <%if @user.id == post.user_id %>
-                              <tr>
-                                <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
-                                <td><%= post.title %></td>
-                                <td><%= post.description %></td>
-                                <td><%= post.location %></td>
-                                <td><%= post.rate %></td>
-                                <td><%= link_to 'View', post %></td>
-                               </tr>
-                            <%end%>
-                          </tbody>
-                          <%end%>
-                        </table>
                    </div>
               </div>
               <% if !(@user.linkedin.blank?) %>
@@ -89,47 +68,32 @@
                  </div>
             </div>
         </div>
-    </div>
+    </div>   
   <%end%>
 <%end%>
-		<!-- <div class="col-lg-10" style="text-align: right;">
-         <button id= jobs class="jobs">Past Jobs</button>
-     	</div>
-     	<div class="col-lg-10" style="text-align: right;">
-     	</div> -->
-
      	
-       
-        
+     <table class="table table-striped">
+  <thead>
+     <tr>  Previous Jobs for <%= @user.first_name %> <%= @user.last_name %></tr>
+      <th colspan="3"></th>
+  </thead>
+ <tbody>
+    <% @posts.each do |post| %>
+    <%if @user.id == post.user_id %>
+      <tr>
+        <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
+        <td><%= post.title %></td>
+        <td><%= post.description %></td>
+        <td><%= post.location %></td>
+        <td><%= post.rate %></td>
+        <td><%= link_to 'View', post %></td>
+       </tr>
+    <%end%>
+  </tbody>
+  <%end%>
+</table>
 
-    <!-- <div id="pastJobData" class="modal">
-  <div class="modal-content">
-    <p>Jobs comming soon</p>
-  </div> -->
-
-<!-- <div class="row">
-	<div class="col-lg-2">
-	</div>
-	<div class="col-lg-4">
-
-<div class="jobCard" style="width: 18rem,margin-top;">
-  <div class="card-body">
-    <h5 class="card-title">Job 1</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">link to somewhere</a>
-  </div>
-</div>
-</div>
-
-<div class="col-lg-4">
-	<div class="jobCard" style="width: 18rem, margin-top;">
-  <div class="card-body">
-    <h5 class="card-title">Job 2</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">link to somewhere</a>
-  </div>
-</div>
-</div> -->
+      
 
   </body>
 </html>
