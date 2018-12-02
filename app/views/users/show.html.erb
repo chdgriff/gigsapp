@@ -59,8 +59,7 @@
 </div>       
 <% if user_signed_in? %>
   <% if current_user.id == @user.id  %>
-  <div class="jumbotron" style="margin-top: 30px">
-       <div class="container" style="margin-bottom: 20px;margin-top: 30px;">
+  <div class="jumbotron" style="margin-bottom: 20px;margin-top: 30px;">
           <div class="row">
                 <div class="col-lg-10" style="text-align: left;">
                 <h5> Private Data </h5>
@@ -68,7 +67,6 @@
                <%= image_tag("outline_mail_outline_black_18dp.png", :alt => "profile")%><%= @user.email %>
               </div>
           </div>
-        </div>
     </div>
     <%end%>
 <%end%>
