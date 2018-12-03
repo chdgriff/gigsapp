@@ -88,8 +88,8 @@
         <br><br><hr class="row">
         <ratings>
           <h2 class="row">Comments</h2>
-          <% if @user.id != current_user %>
-          <%= render "ratings/form" %>
+          <% if (user_signed_in? && @user.id != current_user.id) %>
+            <%= render "ratings/form" %>
           <% end %>
           <br>
 
