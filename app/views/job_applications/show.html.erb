@@ -1,14 +1,26 @@
-<p id="notice"><%= notice %></p>
+<head>
 
-<p>
-  <strong>Post_id:</strong>
-  <%= @job_application.post_id %>
-</p>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <%= stylesheet_link_tag "header" %>
 
-<p>
-  <strong>Ask Rate:</strong>
-  <%= @job_application.ask_rate %>
-</p>
+</head>
+<div class = "headerbreak"></div>
+<body>
 
-<%= link_to 'Edit', edit_job_application_path(@job_application, :postid => @job_application.post_id) %> |
-<%= link_to 'Back', post_path(@job_application.post_id) %>
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Post_id:</strong>
+    <%= @job_application.post_id %>
+  </p>
+
+  <p>
+    <strong>Requested Rate:</strong>
+    <%= @job_application.ask_rate %>
+  </p>
+
+  <%= link_to 'Edit', edit_job_application_path(@job_application, :postid => @job_application.post_id), class: "btn btn-info" %>
+  <%= link_to 'Back', post_path(@job_application.post_id), class: "btn btn-primary" %>
+
+</body>

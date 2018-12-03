@@ -1,25 +1,61 @@
-<p id="notice"><%= notice %></p>
+<div class = "background_color">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "job_applications" %>
 
-<h1>Job Applications</h1>
+  </head>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @job_applications.each do |job_application| %>
-      <tr>
-        <td><%= link_to 'Show', job_application %></td>
-        <td><%= link_to 'Edit', edit_job_application_path(job_application) %></td>
-        <td><%= link_to 'Destroy', job_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <body>
+    <!-- Page Content -->
+    <div class="container post">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
 
-<br>
+        <p id="notice"><%= notice %></p>
 
-<%= link_to 'New Job Application', new_job_application_path %>
+        <h1>Job Applications</h1>
+
+
+            <table class ="table table-striped table-hover">
+              <thead>
+                <tr class="thread-light">
+                  <th scope="col"><h3>Post</h3></th>
+                  <th scope="col"><h3>Description</h3></th>
+                  <th scope="col"><h3>Offered Rate</h3></th>
+                  <th scope="col"><h3>Requested Rate</h3></th>
+                  <th></th>
+                </tr>
+              </thead>
+
+                <tbody>
+                  <% @job_applications.each do |job_application| %>
+                    <% if job_application.user_id == current_user.id %>
+
+                    <% @posts.each do |post| %>
+                      <% if post.id == job_application.post_id %>
+
+                      <tr class="table-row">
+                        <td><h5><%= post.title %></h5></td>
+                        <td><h5><%= post.description %></h5></td>
+                        <td><h5>$<%= post.rate %></h5></td>
+                        <td><h5>$<%= job_application.ask_rate %></h5></td>
+
+                        <td><%= link_to 'Edit', edit_job_application_path(job_application, :postid => job_application.post_id), class: "btn btn-primary" %>
+                        <%= link_to 'Go to Post', post_path(job_application.post_id), class: "btn btn-info" %>
+                        <%= link_to 'Delete', job_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+
+                      </tr>
+                      <% end %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </tbody>
+            </table>
+        </div>
+
+      </div>
+      <hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr>
+    </div>
+  </body>
+</div>

@@ -1,6 +1,35 @@
-<h1>New Job Application</h1>
+<div class = "background_color">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "job_applications" %>
+
+  </head>
 
 
-<%= render 'form', job_application: @job_application %>
+  <body>
+    <!-- Page Content -->
+    <div class="container post">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
 
-<%= link_to 'Back', post_path(@post) %>
+        <p id="notice"><%= notice %></p>
+
+        <h1 style="margin-bottom: 30px;">New Job Application</h1>
+
+        <center>
+          <div class="card mb-4" style="width: 20rem;">
+            <div class="card-body">
+              <h3><%= render 'form', job_application: @job_application %></h3>
+              <%= link_to 'Back', post_path(@post), class: "btn btn-primary" %>
+
+            </div>
+          </div>
+
+        </center>
+        </div>
+
+      </div>
+      <hr><hr><hr><hr>
+    </div>
+  </body>
+</div>

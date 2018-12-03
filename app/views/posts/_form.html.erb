@@ -1,56 +1,68 @@
-<%= form_with model: post, local: true, multipart: true do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class = "">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "posts" %>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  </head>
+
+  <div class = "headerbreak"></div>
+  <body>
+
+    <%= form_with model: post, local: true, multipart: true do |form| %>
+      <% if post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+          <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="container-fluid">
-    <div class="row field form-group">
-      <%# <%= form.label :title %>
-      <%= form.text_field :title, class: "form-control form-control-lg", placeholder: "Job Title" %>
-    </div>
+        <div class="row field form-group">
+          <h5><%= form.label :title %></h5>
+          <%= form.text_field :title, class: "form-control form-control-lg", placeholder: "Job Title" %>
+        </div>
 
-    <div class="row field form-group">
-      <%= form.label :description %>
-      <%= form.text_area :description, class: "form-control", placeholder: "Job Description"%>
-    </div>
+        <div class="row field form-group">
+          <h5><%= form.label :description %></h5>
+          <%= form.text_area :description, rows: "7", class: "form-control", placeholder: "Job Description"%>
+        </div>
 
-    <div class="row">
-      <div class="col-6 pl-0 form-group field">
-        <%= form.label :location %>
-        <%= form.text_field :location, class: "form-control", placeholder: "Job Location"%>
-      </div>
-    </div>
+        <div class="form-row">
+          <div class="col">
+            <div class="form-group field">
+              <h5><%= form.label :location %></h5>
+              <%= form.text_field :location, class: "form-control", placeholder: "Job Location"%>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group field">
+              <h5><%= form.label :rate %></h5>
+              <%= form.text_field :rate, class: "form-control", placeholder: "Job Rate"%>
+            </div>
+          </div>
+        </div>
 
-    <div class="row">
-      <div class="col-3 pl-0 form-group field">
-        <%= form.label :rate %>
-        <%= form.text_field :rate, class: "form-control", placeholder: "Job Rate"%>
-      </div>
-    </div>
-
-    <br>
-    <div class="row">
-      <h5>Add a picture?</h5>
-      <%= form.file_field :asset, class: "form-control-file"%>
-      <br />
-      <% if form.object.asset? %>
+        <br>
+        <div class="row">
+          <h5>Add a picture?</h5>
+          <%= form.file_field :asset, class: "form-control-file"%>
           <br />
-          <%= image_tag(form.object.asset.url(:small)) %><br />
-          <em>Currently uploaded image</em>
-      <% end %>
-    </div>
-    <br />
+          <% if form.object.asset? %>
+              <br />
+              <%= image_tag(form.object.asset.url(:small)) %><br />
+              <em>Currently uploaded image</em>
+          <% end %>
+        </div>
+        <br />
 
-    <div class="row actions">
-      <%= form.submit "Save Gig", class: "btn btn-success" %>
-    </div>
-  </div>
-<% end %>
+        <div class="row actions">
+          <%= form.submit "Save Gig", class: "btn btn-success btn-block  save_post_btn" %>
+        </div>
+
+    <% end %>
+  </body>
+</div>

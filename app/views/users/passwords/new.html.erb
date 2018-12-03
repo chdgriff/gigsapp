@@ -1,19 +1,29 @@
-<div class="mx-auto" style="width: 50%;">
-<h2>Forgot your password?</h2>
+<head>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <%= stylesheet_link_tag "header" %>
 
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+</head>
+<div class = "headerbreak"></div>
+<body>
+
+  <div class="mx-auto" style="width: 50%;">
+  <h2>Forgot your password?</h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+    <%= devise_error_messages! %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
-  <%= devise_error_messages! %>
-</div>
+</body>

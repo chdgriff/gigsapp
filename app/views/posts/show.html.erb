@@ -1,64 +1,114 @@
-<p id="notice"><%= notice %></p>
 
-<div class="container">
-  <div class="jumbotron" style="margin-top: 30px">
+<div class = "background_color">
+  <head>
 
-<p>
-  <h1><%= @post.title %></h1>
-</p>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "posts" %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @post.location %>
-</p>
-
-<p>
-  <strong>Rate:</strong>
-  <%= @post.rate %>
-</p>
-
-<p>
-  <strong> Employer: </strong>
-  <%= link_to "@post.user.first_name @post.user.last_name", user_path(@post.user) %>
-</p>
-
-<p>
-<%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
-</p>
+  </head>
 
 
-<% if user_signed_in? %>
-  <% if current_user.id == @post.user_id  %>
-    <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'%>
-  <% end %>
-<% end %>
+  <body>
+    <!-- Page Content -->
+    <div class="container post">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
 
-<% if user_signed_in? && current_user.id != @post.user_id %>
-<%# This post isn't belongs to this current user. %>
-    <% if @post.job_applications.count == 0 %>
-    <%# This post has no job_applications record yet. %>
-      <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
-    <% else %>
-      <% @post.job_applications.each do |jobapp| %>
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="text" style="margin-bottom: 30px">Gig Details</h1>
 
-        <% if jobapp.user_id == current_user.id %>
-          <%# Current user has applied this job before. %>
-          <%= link_to 'Your Application', job_application_path(jobapp), class: 'btn btn-success'%>
-        <% else %>
-          <%# Current user hasn't applied this job before. %>
-          <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+        <div class="row">
+          <div class="col-md-7">
+
+            <div class="card mb-4">
+              <center class="card-header"><%= @post.title %></center>
+              <div class="card-body" style="margin-left: 10px">
+                <div class="col-lg-10">
+                  <h5 style="margin-bottom: 40px">
+                    <strong>Description:</strong>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp
+                    <%= @post.description %>
+                  </h5>
+
+                  <h5 style="margin-bottom: 40px">
+                    <strong>Location:</strong>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <%= @post.location %>
+                  </h5>
+
+                  <h5 style="margin-bottom: 40px">
+                    <strong>Rate:</strong>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <%= @post.rate %>
+                  </h5>
+
+                  <h5>
+                    <strong> Employer: </strong>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <% ename = @post.user.first_name + " " + @post.user.last_name %>
+                    <%= link_to ename, user_path(@post.user) %>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <p style="margin-top: 50px">
+            <%= image_tag @post.asset.url(:medium), class: "img-thumbnail" %>
+            </p>
+
+          </div>
+        </div>
+
+        <%= link_to 'Back', posts_path, class: 'btn btn-warning', style: "margin-right: 20px; margin-left: 2px"%>
+
+        <% if user_signed_in? %>
+          <% if current_user.id == @post.user_id  %>
+            <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' , style: "margin-right: 20px"%>
+            <%= link_to 'Show Applicants', job_applicants_path(:postid => @post.id), class: 'btn btn-info'%>
+          <% end %>
         <% end %>
-      <% end %>
-    <% end %>
-<% end %>
+
+        <div style= "padding: 20px; "></div>
+        <div class="card mb-4">
+          <center class="card-header">Related Gigs</center>
+          <div class="card-body">
+
+          </div>
+        </div>
 
 
-<%= link_to 'Back', posts_path, class: 'btn btn-primary'%>
 
-</div>
+        <% if user_signed_in? && current_user.id != @post.user_id %>
+        <%# This post isn't belongs to this current user. %>
+            <% if @post.job_applications.count == 0 %>
+            <%# This post has no job_applications record yet. %>
+              <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+            <% else %>
+
+              <% applied = false %>
+              <% @post.job_applications.each do |jobapp| %>
+                <% if jobapp.user_id == current_user.id %>
+                  <%# Current user has applied this job before. %>
+                  <% applied = true %>
+                  <%= link_to 'Your Application', job_applications_path(current_user.id), class: 'btn btn-success'%>
+                <% end %>
+              <% end %>
+
+              <% if !applied %>
+                <%# Current user hasn't applied this job before. %>
+                <%= link_to 'Apply Now!', new_job_application_path(:postid => @post.id), class: 'btn btn-success'%>
+              <% end %>
+
+            <% end %>
+        <% end %>
+
+      </div>
+      <hr><hr><hr><hr><hr>
+
+    </div>
+  </body>
+
+
 </div>

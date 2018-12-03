@@ -1,6 +1,14 @@
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>">
-    <a href="#" data-dismiss="alert" class="close">×</a>
-        <%= value %>
-  </div>
-<% end %>
+<head>
+
+</head>
+<div class = "headerbreak"></div>
+<body>
+
+
+  <% flash.each do |key, value| %>
+    <div class="alert<%= key %>">
+      <a href="#" data-dismiss="alert" class="close">×</a>
+          <%= value %>
+    </div>
+  <% end %>
+</body>

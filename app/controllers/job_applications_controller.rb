@@ -1,11 +1,12 @@
 class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :show_applicants, :edit, :update, :destroy]
 
   # GET /job_applications
   # GET /job_applications.json
   def index
     @job_applications = JobApplication.all
+    @posts = Post.all
   end
 
   # GET /job_applications/1
@@ -13,10 +14,17 @@ class JobApplicationsController < ApplicationController
   def show
   end
 
+  def show_applicants
+    @job_applications = JobApplication.all
+    @users = User.all
+    @post = Post.find(params[:postid])
+  end
+
   # GET /job_applications/new
   def new
     @job_application = JobApplication.new
     @post = Post.find(params[:postid])
+
   end
 
   # GET /job_applications/1/edit
@@ -32,7 +40,7 @@ class JobApplicationsController < ApplicationController
 
     respond_to do |format|
       if @job_application.save
-        format.html { redirect_to @job_application, notice: 'Job application was successfully created.' }
+        format.html { redirect_to job_applications_url }
         format.json { render :show, status: :created, location: @job_application }
       else
         format.html { render :new }
@@ -47,7 +55,7 @@ class JobApplicationsController < ApplicationController
 
     respond_to do |format|
       if @job_application.update(job_application_params)
-        format.html { redirect_to @job_application, notice: 'Job application was successfully updated.' }
+        format.html { redirect_to job_applications_url}
         format.json { render :show, status: :ok, location: @job_application }
       else
         format.html { render :edit }
@@ -61,7 +69,7 @@ class JobApplicationsController < ApplicationController
   def destroy
     @job_application.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Job application was successfully destroyed.' }
+      format.html { redirect_to job_applications_url}
       format.json { head :no_content }
     end
   end

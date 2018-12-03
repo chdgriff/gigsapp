@@ -1,8 +1,31 @@
-<div class="container jumbotron" style="margin-top: 30px">
-  <h1>New Gig</h1>
+<div class = "background_color">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "posts" %>
 
-    <%= render 'form', post: @post %>
+  </head>
 
-    <%= link_to 'Back', posts_path, class: "btn btn-primary mt-3" %>
+
+  <body>
+    <!-- Page Content -->
+    <div class="container post">
+    <div class="container font">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
+
+        <!-- Page Heading -->
+        <h1 class="" style="margin-bottom: 10px">New Gigs</h1>
+
+        <%= render 'form', post: @post %>
+        <br />
+        <%= link_to 'Back', posts_path, class: "btn btn-warning" %>
+
+
+      </div>
+      <hr><hr><hr><hr><hr>
+
+    </div>
+  </body>
+
 
 </div>

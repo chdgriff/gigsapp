@@ -1,0 +1,129 @@
+#mainNav {
+  padding-top: 0.5rem;
+  padding-bottom: 0.2rem;
+  font-weight: 700;
+  font-family: 'Montserrat';
+}
+
+#mainNav .navbar-brand {
+  color: #fff;
+}
+
+#mainNav .navbar-nav {
+  margin-top: 0.5rem;
+  letter-spacing: 0.0625rem;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link {
+  color: #fff;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+  color: #666600;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
+  color: #fff;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link.active {
+  color: #666600;
+  background-color: #ffffff;
+}
+
+#mainNav .navbar-toggler {
+  font-size: 80%;
+  padding: 0.8rem;
+
+}
+
+@media (min-width: 992px) {
+  #mainNav {
+    // padding-top: 1.5rem;
+    // padding-bottom: 1.5rem;
+    -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+    transition: padding-top 0.3s, padding-bottom 0.3s;
+  }
+  #mainNav .navbar-brand {
+    font-size: 2em;
+    -webkit-transition: font-size 0.3s;
+  }
+  #mainNav .navbar-nav {
+    margin-top: 0;
+  }
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+    color: #fff;
+    background: #666600;
+  }
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+    color: #fff;
+    background: #666600;
+  }
+  #mainNav.navbar-shrink {
+
+  }
+  #mainNav.navbar-shrink .navbar-brand {
+    font-size: 1.5em;
+  }
+}
+
+.bg-primary {
+  background-color: #18BC9C !important;
+}
+
+// header background color
+.bg-secondary {
+  background-color: #2C3337 !important;
+}
+
+
+.btn2 {
+  -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  font-family: 'Varela Round';
+  font-size: 100%;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  border: 0;
+}
+
+.btn2-primary {
+  background-color: #64a19d;
+  opacity:0.8;
+}
+
+.btn2-primary:hover {
+  background-color: #4f837f;
+}
+
+.btn2-primary:focus {
+  background-color: #4f837f;
+  color: white;
+}
+
+.btn2-primary:active {
+  background-color: #4f837f !important;
+}
+
+.btn2-secondary {
+  background-color: #b3b300;
+  opacity:0.8;
+}
+
+.btn2-secondary:hover {
+  background-color: #666600;
+}
+
+.btn2-secondary:focus {
+  background-color: #666600;
+  color: white;
+}
+
+.btn2-secondary:active {
+  background-color: #666600 !important;
+}
+
+.headerbreak{
+  margin: 3rem;
+}
