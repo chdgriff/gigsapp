@@ -6,7 +6,8 @@ class RatingsController < ApplicationController
     if @rating.save
       redirect_to @user
     else
-      redirect_to @user, notice: "Did not save rating"
+      flash[:warning] = "Did not save rating"
+      redirect_to @user
     end
   end
 
@@ -31,12 +32,6 @@ class RatingsController < ApplicationController
     @user = User.find(@rating.user_id)
     @rating.destroy
     redirect_to(@user)
-  end
-
-  def index
-  end
-
-  def show
   end
 
   private
