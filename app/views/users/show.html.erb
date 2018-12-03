@@ -8,7 +8,7 @@
     <div class="container post">
       <h1 class="mt-1 mb-3">&nbsp</h1>
       <div class="jumbotron">
-        <h1 class="font-weight-bold text-center" style="margin-bottom:50px;">Profile</h1>
+        <h1 class="font-weight-bold text-center" style="margin-bottom:20px;">Profile</h1>
         <div class="row">
           <div class="col-lg-4" style="margin-right: 40px;">
 	           <div class="row">
@@ -68,18 +68,17 @@
         <table class="table table-striped">
           <thead class="row">
             <td>Other posts from <%= @user.first_name + " " + @user.last_name %></td>
-            <th colspan="3"></th>
           </thead>
-          <tbody class="row">
+          <tbody>
             <% @posts.each do |post| %>
               <%if @user.id == post.user_id %>
-                <tr>
-                  <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
-                  <td><%= post.title %></td>
-                  <td><%= post.description %></td>
-                  <td><%= post.location %></td>
-                  <td><%= post.rate %></td>
-                  <td><%= link_to 'View', post %></td>
+                <tr class="row">
+                  <td class="col-1"><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
+                  <td class="col-2"><%= post.title %></td>
+                  <td class="col"><%= post.description %></td>
+                  <td class="col-2"><%= post.location %></td>
+                  <td class="col-1"><%= post.rate %></td>
+                  <td class="col-1"><%= link_to 'View', post, class: "btn btn-info" %></td>
                 </tr>
               <%end%>
             <%end%>
