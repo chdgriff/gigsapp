@@ -33,7 +33,7 @@
                       <% if user.id == job_application.user_id %>
 
                   <tr class="table-row">
-                    <td><%= user.first_name + " " + user.last_name%></td>
+                    <td><%= link_to user.first_name + " " + user.last_name, user%></td>
                     <td><%= user.email %></td>
                     <td>$<%= @post.rate %></td>
                     <td>$<%= job_application.ask_rate %></td>
