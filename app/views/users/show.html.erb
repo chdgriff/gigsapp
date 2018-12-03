@@ -39,7 +39,14 @@
                       <div class="col-lg-6" style="text-align: left;">
                         <h4 style="margin-top: 20px;margin-bottom: 10px;color: black"><%= @user.first_name%> <%= @user.last_name %></h4>
                         <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>, <%= @user.state %>
-                        <h5 style="margin-top: 30px;">Rating: <%= @user.rating_avg %>/5</h5>
+                        <h5 style="margin-top: 30px;">Rating:
+                          <% @user.rating_avg.times do %>
+                            <i class="fas fa-star"></i>
+                          <% end %>
+                          <% (5 - @user.rating_avg).times do %>
+                            <i class="far fa-star"></i>
+                          <% end %>
+                        </h5>
                    </div>
               </div>
               <% if !(@user.linkedin.blank?) %>
