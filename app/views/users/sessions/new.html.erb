@@ -5,13 +5,10 @@
 
   </head>
 
-
   <body>
     <!-- Page Content -->
     <div class="container post">
       <h1 class="mt-1 mb-3">&nbsp</h1>
-
-        <p id="notice"><%= notice %></p>
 
         <h1 style="margin-bottom: 30px;">Log In</h1>
 
@@ -21,7 +18,7 @@
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <div class="form-group">
                   <h3><%= f.label :email %></h3>
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control email_field' %>
                 </div>
 
                 <div class="form-group">
