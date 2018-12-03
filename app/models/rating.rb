@@ -3,5 +3,5 @@ class Rating < ApplicationRecord
 
   validates :user_id, presence: true
   validates :rater_id, presence: true
-  validates :rating, presence: true
+  validates :rating, inclusion: 0...5
 end

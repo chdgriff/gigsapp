@@ -6,14 +6,31 @@ class RatingsController < ApplicationController
     if @rating.save
       redirect_to @user
     else
-      flash.now[:danger] = "Error rating not saved"
+      redirect_to @user, notice: "Did not save rating"
     end
   end
 
+  def edit
+    @rating = Rating.find(params[:id])
+    @user = User.find(@rating.user_id)
+  end
+
   def update
+    @rating = Rating.find(params[:id])
+    if current_user == @rating.rater_id
+      if @rating.update(rating_params)
+        redirect_to user_path(@rating.user_id)
+      else
+        render "edit"
+      end
+    end
   end
 
   def destroy
+    @rating = Rating.find(params[:id])
+    @user = User.find(@rating.user_id)
+    @rating.destroy
+    redirect_to(@user)
   end
 
   def index

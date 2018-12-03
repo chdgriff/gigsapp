@@ -6,6 +6,6 @@ class UsersController < ApplicationController
   end
 
   def calc_rating
-    
+
   end
 end

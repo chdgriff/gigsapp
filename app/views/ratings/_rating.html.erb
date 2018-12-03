@@ -2,6 +2,7 @@
 <div class="row">
   <h5><%= link_to User.find(rating.rater_id).first_name + " " +
           User.find(rating.rater_id).last_name, user_path(rating.rater_id) %></h5>
+  &nbsp;<%= time_ago_in_words(rating.created_at)%>
 </div>
 
 <div class="row">
@@ -9,9 +10,7 @@
 </div>
 
 <div class="row"><%= rating.comment %></div>
-
-<% if rating.rater_id == current_user %>
-  <%= link_to "Edit", edit_rating_path(rating)%>
-<% end %>
-
+  <% if current_user.id == rating.rater_id %>
+    <%= link_to "Edit", edit_user_rating_path(@user, rating), class: "btn btn-warning" %>
+  <% end %>
 </div>
