@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'ratings/create'
-  get 'ratings/update'
-  get 'ratings/destroy'
-  get 'ratings/index'
-  get 'ratings/show'
   resources :job_applications
   devise_for :users, :controllers => {registrations: "users/registrations"}
 

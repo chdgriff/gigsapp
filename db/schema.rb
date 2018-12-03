@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2018_11_29_024159) do
-=======
-ActiveRecord::Schema.define(version: 2018_11_29_002842) do
->>>>>>> master
+ActiveRecord::Schema.define(version: 2018_12_03_035348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,9 +38,8 @@ ActiveRecord::Schema.define(version: 2018_11_29_002842) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-<<<<<<< HEAD
   create_table "ratings", force: :cascade do |t|
-    t.integer "rater"
+    t.integer "rater_id"
     t.integer "rating"
     t.text "comment"
     t.bigint "user_id"
@@ -53,8 +48,6 @@ ActiveRecord::Schema.define(version: 2018_11_29_002842) do
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
-=======
->>>>>>> master
   create_table "searches", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -90,6 +83,7 @@ ActiveRecord::Schema.define(version: 2018_11_29_002842) do
     t.integer "profile_image_file_size"
     t.datetime "profile_image_updated_at"
     t.string "linkedin"
+    t.integer "rating_avg"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

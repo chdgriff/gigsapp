@@ -55,7 +55,7 @@
                     </div>
         </div>
     </div>
-</div>       
+</div>
 <% if user_signed_in? %>
   <% if current_user.id == @user.id  %>
     <div class="container">
@@ -68,10 +68,10 @@
                  </div>
             </div>
         </div>
-    </div>   
+    </div>
   <%end%>
 <%end%>
-     	
+
      <table class="table table-striped">
   <thead>
      <td>  Previous Jobs for <%= @user.first_name %> <%= @user.last_name %></td>
@@ -93,7 +93,17 @@
   <%end%>
 </table>
 
-      
+<div class="container jumbotron">
+  <% if @user.id != current_user %>
+  <%= render "ratings/form" %>
+  <% end %>
+<br><br>
+
+  <div class="row list-group">
+    <h2>Comments</h2>
+    <%= render @user.ratings.select(&:persisted?) %>
+  </div>
+</div>
 
   </body>
 </html>

@@ -1,0 +1,17 @@
+<div class="list-group-item">
+<div class="row">
+  <h5><%= link_to User.find(rating.rater_id).first_name + " " +
+          User.find(rating.rater_id).last_name, user_path(rating.rater_id) %></h5>
+</div>
+
+<div class="row">
+  <div><%= rating.rating %>/5</div>
+</div>
+
+<div class="row"><%= rating.comment %></div>
+
+<% if rating.rater_id == current_user %>
+  <%= link_to "Edit", edit_rating_path(rating)%>
+<% end %>
+
+</div>

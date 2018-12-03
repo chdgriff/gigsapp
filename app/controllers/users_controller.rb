@@ -4,4 +4,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = Post.all
   end
+
+  def calc_rating
+    
+  end
 end
