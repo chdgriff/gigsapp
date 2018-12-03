@@ -1,26 +1,18 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
+<div class = "background_color">
   <head>
-
-    <title>Profile</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
     <%= stylesheet_link_tag "profile" %>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-      <%= stylesheet_link_tag "header" %>
+
 
   </head>
-  <div class = "headerbreak"></div>
   <body>
-
-    <!-- Page Content -->
-
-      <!-- Page Heading/Breadcrumbs -->
+    <div class="container post">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
 
 <div class="container">
-    <div class="jumbotron" style="margin-top: 30px">
+    <div class="jumbotron">
+        <h1 class="font-weight-bold text-center" style="margin-bottom:50px;">Profile</h1>
         <div class="container" style="margin-bottom: 20px;margin-top: 30px;">
     	     <div class ="row">
     	         <div class="col-lg-10" style="text-align: right;">
@@ -55,7 +47,7 @@
                     </div>
         </div>
     </div>
-</div>       
+</div>
 <% if user_signed_in? %>
   <% if current_user.id == @user.id  %>
     <div class="container">
@@ -68,10 +60,10 @@
                  </div>
             </div>
         </div>
-    </div>   
+    </div>
   <%end%>
 <%end%>
-     	
+
      <table class="table table-striped">
   <thead>
      <td>  Previous Jobs for <%= @user.first_name %> <%= @user.last_name %></td>
@@ -93,7 +85,12 @@
   <%end%>
 </table>
 
-      
 
-  </body>
-</html>
+</div>
+<hr><hr><hr><hr><hr>
+
+</div>
+
+</body>
+
+</div>
