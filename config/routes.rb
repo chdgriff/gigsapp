@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
+  get 'ratings/create'
+  get 'ratings/update'
+  get 'ratings/destroy'
+  get 'ratings/index'
+  get 'ratings/show'
   resources :job_applications
   devise_for :users, :controllers => {registrations: "users/registrations"}
-  resources :users
+
+  resources :users do
+    resources :ratings
+  end
+
   resources :posts
   resources :about
   get 'home', :to => "home#index"

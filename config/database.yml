@@ -24,6 +24,7 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
   username: gigsapp
   pasword: password
   database: gigsapp_development
