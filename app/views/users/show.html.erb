@@ -67,18 +67,18 @@
         <br><br><hr class="row">
         <table class="table table-striped">
           <thead class="row">
-            <td>Other posts from <%= @user.first_name + " " + @user.last_name %></td>
+            <h2>Other posts from <%= @user.first_name + " " + @user.last_name %></h2>
           </thead>
           <tbody>
             <% @posts.each do |post| %>
               <%if @user.id == post.user_id %>
                 <tr class="row">
                   <td class="col-1"><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
-                  <td class="col-2"><%= post.title %></td>
-                  <td class="col"><%= post.description %></td>
-                  <td class="col-2"><%= post.location %></td>
-                  <td class="col-1"><%= post.rate %></td>
-                  <td class="col-1"><%= link_to 'View', post, class: "btn btn-info" %></td>
+                  <td class="col-2"><h4><%= post.title %></h4></td>
+                  <td class="col"><h4><%= post.description %></h4></td>
+                  <td class="col-2"><h4><%= post.location %></h4></td>
+                  <td class="col-1"><h4><%= post.rate %></h4></td>
+                  <td class="col-1"><%= link_to 'View', post, class: "btn btn-success" %></td>
                 </tr>
               <%end%>
             <%end%>
