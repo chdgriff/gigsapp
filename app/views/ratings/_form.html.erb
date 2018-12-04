@@ -1,6 +1,8 @@
 <%= form_with(model: [ @user, @user.ratings.build ],
                local: true) do |form| %>
 
+   <%= render "layouts/error_messages", object: form.object %>
+
   <div class="row field form-group">
       <h5><%= form.label :rating, "Rating: ", class: "col-form-label"%></h5>
     <div class="col-2">

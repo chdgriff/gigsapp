@@ -9,25 +9,16 @@
   <body>
 
     <%= form_with model: post, local: true, multipart: true do |form| %>
-      <% if post.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <%= render "layouts/error_messages", object: form.object%>
 
-          <ul>
-          <% post.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-        <div class="row field form-group">
-          <h5><%= form.label :title %></h5>
-          <%= form.text_field :title, class: "form-control form-control-lg", placeholder: "Job Title" %>
+        <div class="form-row form-group">
+          <h5 class="col-1"><%= form.label :title %></h5>
+          <div class="col-3">
+          <%= form.text_field :title, class: "form-control-lg", placeholder: "Job Title" %></div>
         </div>
 
-        <div class="row field form-group">
-          <h5><%= form.label :description %></h5>
+        <div class="form-row form-group">
+          <h5 class="form-label"><%= form.label :description %></h5>
           <%= form.text_area :description, rows: "7", class: "form-control", placeholder: "Job Description"%>
         </div>
 
