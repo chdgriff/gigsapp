@@ -22,7 +22,11 @@
                 <% text_field_tag :search, @search_term, options = {style:"height:40px;length:300px;border-radius:10px;", placeholder:" Type here...", :size=>"40"} %>
               <% end %>
               <div class="new_post_btn" align="center" style="margin-left: 10px;">
-                <%= link_to "GO", posts_path, class: "btn btn-info " %>
+
+                <%= link_to posts_path, class: "btn btn-info " do %>
+                  <i class="fas fa-search"></i>
+                <% end %>
+
               </div>
               <div class="new_post_btn" align="center">
                 <%= link_to "Search Post With Filter", new_search_path, class: "btn btn-warning" %>
