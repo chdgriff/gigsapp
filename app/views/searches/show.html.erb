@@ -1,16 +1,32 @@
-<h1>Search Results</h1>
+<div class = "background_color">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "profile" %>
+  </head>
 
-<p><%= link_to 'Back', new_search_path %></p>
-<% if @search.search_posts.empty? %>
-  <p>No Record Found</p>
-<%else%>
-  <% @search.search_posts.each do |c| %>
-    <br>
-    <div class="div">
-      <p>Job: $<%= c.title %></p>
-      <p>Description: $<%= c.description %></p>
-      <p>Location: $<%= c.location %></p>
-      <p>Rate: $<%= c.rate %></p>
+  <body>
+    <div class="container post">
+      <h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
+      <h1>Search Results</h1>
+
+      <% if @search.search_posts.empty? %>
+        <p>No Record Found</p>
+      <%else%>
+        <% @search.search_posts.each do |c| %>
+          <br>
+          <div class="div">
+            <p>Job: <%= c.title %></p>
+            <p>Description: <%= c.description %></p>
+            <p>Location: <%= c.location %></p>
+            <p>Rate: $<%= c.rate %></p>
+          </div>
+        <%end%>
+      <%end%>
+
+      <p><%= link_to 'Back', new_search_path, class: "btn btn-warning" %></p>
+
     </div>
-  <%end%>
-<%end%>
+  </div>
+</body>
+</div>
