@@ -1,14 +1,23 @@
+<div class = "background_color">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
+    <%= stylesheet_link_tag "profile" %>
+  </head>
 
-<div class="jumbotron container">
+  <body>
+    <div class="container post"><h1 class="mt-1 mb-3">&nbsp</h1>
+      <div class="jumbotron">
+        <div class="row">
+          <h3>Edit Rating for&nbsp;<%= link_to @user.first_name + " " + @user.last_name, @user%></h3>
+        </div>
 
-<div class="row">
-  <h3>Edit Rating for&nbsp;<%= link_to @user.first_name + " " + @user.last_name, @user%></h3>
-</div>
-
-<%= render "ratings/form" %>
-<br>
-<div class="row">
-<%= link_to "Delete Comment", user_rating_path(@rating.rater_id, @rating),
-    method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
-</div>
+        <%= render "ratings/form" %>
+        <br>
+        <div class="row">
+        <%= link_to "Delete Comment", user_rating_path(@rating.rater_id, @rating),
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+        </div>
+      </div>
+    </div>
+  </body>
 </div>
