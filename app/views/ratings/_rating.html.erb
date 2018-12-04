@@ -16,7 +16,7 @@
 
   <div class="row"> <%= rating.comment %> </div>
   <div class="row">
-    <% if current_user == rating.rater_id %>
+    <% if current_user.id == rating.rater_id %>
       <%= link_to "Edit", edit_user_rating_path(@user, rating), class: "btn btn-warning" %>
     <% end %>
   </div>
