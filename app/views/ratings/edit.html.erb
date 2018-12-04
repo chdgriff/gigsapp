@@ -1,0 +1,14 @@
+
+<div class="jumbotron container">
+
+<div class="row">
+  <h3>Edit Rating for&nbsp;<%= link_to @user.first_name + " " + @user.last_name, @user%></h3>
+</div>
+
+<%= render "ratings/form" %>
+<br>
+<div class="row">
+<%= link_to "Delete Comment", user_rating_path(@rating.rater_id, @rating),
+    method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+</div>
+</div>

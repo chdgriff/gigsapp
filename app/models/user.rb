@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :posts
   has_many :job_applications
   has_many :posts, through: :job_applications
+  has_many :ratings, dependent: :destroy
 end

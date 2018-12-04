@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :job_applications
   devise_for :users, :controllers => {registrations: "users/registrations"}
-  resources :users
+
+  resources :users do
+    resources :ratings
+  end
+
   resources :posts
   resources :about
   resources :searches

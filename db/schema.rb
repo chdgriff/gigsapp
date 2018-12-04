@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_29_002842) do
+ActiveRecord::Schema.define(version: 2018_12_03_035348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2018_11_29_002842) do
     t.integer "asset_file_size"
     t.datetime "asset_updated_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "rater_id"
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -73,9 +83,11 @@ ActiveRecord::Schema.define(version: 2018_11_29_002842) do
     t.integer "profile_image_file_size"
     t.datetime "profile_image_updated_at"
     t.string "linkedin"
+    t.integer "rating_avg"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "posts", "users"
+  add_foreign_key "ratings", "users"
 end

@@ -1,0 +1,23 @@
+<div class="list-group-item">
+  <div class="row">
+    <h5><%= link_to User.find(rating.rater_id).first_name + " " +
+            User.find(rating.rater_id).last_name, user_path(rating.rater_id) %></h5>
+    &nbsp;<small><%= time_ago_in_words(rating.created_at)%></small>
+  </div>
+
+  <div class="row">
+    <% rating.rating.times do %>
+      <i class="fas fa-star"></i>
+    <% end %>
+    <% (5 - rating.rating).times do %>
+      <i class="far fa-star"></i>
+    <% end %>
+  </div>
+
+  <div class="row"> <%= rating.comment %> </div>
+  <div class="row">
+    <% if current_user == rating.rater_id %>
+      <%= link_to "Edit", edit_user_rating_path(@user, rating), class: "btn btn-warning" %>
+    <% end %>
+  </div>
+</div>

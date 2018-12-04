@@ -2,95 +2,102 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Overlock|Special+Elite" rel="stylesheet">
     <%= stylesheet_link_tag "profile" %>
-
-
   </head>
+
   <body>
     <div class="container post">
       <h1 class="mt-1 mb-3">&nbsp</h1>
       <div class="jumbotron">
-
-<div class="container">
-    <div class="jumbotron">
-        <h1 class="font-weight-bold text-center" style="margin-bottom:50px;">Profile</h1>
-        <div class="container" style="margin-bottom: 20px;margin-top: 30px;">
-    	     <div class ="row">
-    	         <div class="col-lg-10" style="text-align: right;">
-              </div>
-   		     </div>
-              <div class="row">
-                  <div class="col-lg-4" style="margin-right: 40px;">
-        	           <div class="row">
-                      <% if  @user.profile_image.blank? %>
-                      <%= image_tag"default_profile.png" %>
-                      <% else %>
-                      <%= image_tag @user.profile_image.url(:medium)%>
-                      <% end %>
-                      </div>
-                    </div>
-                      <div class="col-lg-6" style="text-align: left;">
-                        <h4 style="margin-top: 20px;margin-bottom: 10px;color: black"><%= @user.first_name%> <%= @user.last_name %></h4>
-                        <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>, <%= @user.state %>
-                        <h5 style="margin-top: 30px;">Rating: <%= @user %> "/ 10"</h5>
-                   </div>
-              </div>
-              <% if !(@user.linkedin.blank?) %>
-              <div class="row" style="margin-top: 60px;">
-              <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), @user.linkedin) %>
-              </div>
+        <h1 class="font-weight-bold text-center" style="margin-bottom:20px;">Profile</h1>
+        <div class="row">
+          <div class="col-lg-4" style="margin-right: 40px;">
+	           <div class="row">
+              <% if  @user.profile_image.blank? %>
+              <%= image_tag"default_profile.png" %>
+              <% else %>
+              <%= image_tag @user.profile_image.url(:medium)%>
               <% end %>
-                    <hr class="featurette-divider">
-                    <div class="row">
-                        <div class="col-lg-10" style="text-align: left;">
-                          <b><%= @user.bio %></b>
-                        </div>
-                    </div>
-        </div>
-    </div>
-</div>
-<% if user_signed_in? %>
-  <% if current_user.id == @user.id  %>
-    <div class="container">
-        <div class="jumbotron" style="margin-bottom: 20px;margin-top: 30px;">
-            <div class="row">
-                  <div class="col-lg-10" style="text-align: left;">
-                  <h5> Private Data </h5>
-                  <div>Address <%= @user.address %>, <%= @user.city %>, <%= @user.state %> <%= @user.zip %></div>
-                 <%= image_tag("outline_mail_outline_black_18dp.png", :alt => "profile")%><%= @user.email %>
-                 </div>
             </div>
+          </div>
+          <div class="col-lg-6" style="text-align: left;">
+            <h4 style="margin-top: 20px;margin-bottom: 10px;color: black"><%= @user.first_name%> <%= @user.last_name %></h4>
+            <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>, <%= @user.state %>
+            <h5 style="margin-top: 10px">Rating:
+              <% if @user.rating_avg.present? %>
+              <% @user.rating_avg.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - @user.rating_avg).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            <% else %>
+              <small>no ratings</small></h5>
+            <% end %>
+          </div>
         </div>
+        <% if !(@user.linkedin.blank?) %>
+          <div class="row" style="margin-top: 60px;">
+            <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), @user.linkedin) %>
+          </div>
+        <% end %>
+        <hr class="row featurette-divider">
+
+        <div class="row">
+            <b><%= @user.bio %></b>
+        </div>
+
+        <priv>
+          <% if user_signed_in? %>
+            <% if current_user.id == @user.id  %>
+              <br><br>
+              <h4 class="row">Private Data</h4>
+              <div class="row">
+                <strong>Address:&nbsp;</strong>
+                <%= @user.address %>, <%= @user.city %>, <%= @user.state %> <%= @user.zip %>
+              </div>
+              <div class="row">
+                <%= image_tag("outline_mail_outline_black_18dp.png", :alt => "profile")%>
+                &nbsp;
+                <%= @user.email %>
+              </div>
+            <%end%>
+          <%end%>
+        </priv>
+
+        <br><br><hr class="row">
+        <table class="table table-striped">
+          <thead class="row">
+            <td>Other posts from <%= @user.first_name + " " + @user.last_name %></td>
+          </thead>
+          <tbody>
+            <% @posts.each do |post| %>
+              <%if @user.id == post.user_id %>
+                <tr class="row">
+                  <td class="col-1"><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
+                  <td class="col-2"><%= post.title %></td>
+                  <td class="col"><%= post.description %></td>
+                  <td class="col-2"><%= post.location %></td>
+                  <td class="col-1"><%= post.rate %></td>
+                  <td class="col-1"><%= link_to 'View', post, class: "btn btn-info" %></td>
+                </tr>
+              <%end%>
+            <%end%>
+          </tbody>
+        </table>
+
+        <br><br><hr class="row">
+        <ratings>
+          <h2 class="row">Comments</h2>
+          <% if (user_signed_in? && @user.id != current_user.id) %>
+            <%= render "ratings/form" %>
+          <% end %>
+          <br>
+
+          <div class="row list-group">
+            <%= render @user.ratings.order(created_at: :desc).select(&:persisted?) %>
+          </div>
+        </ratings>
+      </div>
     </div>
-  <%end%>
-<%end%>
-
-     <table class="table table-striped">
-  <thead>
-     <td>  Previous Jobs for <%= @user.first_name %> <%= @user.last_name %></td>
-      <th colspan="3"></th>
-  </thead>
- <tbody>
-    <% @posts.each do |post| %>
-    <%if @user.id == post.user_id %>
-      <tr>
-        <td><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.location %></td>
-        <td><%= post.rate %></td>
-        <td><%= link_to 'View', post %></td>
-       </tr>
-    <%end%>
-  </tbody>
-  <%end%>
-</table>
-
-
-</div>
-<hr><hr><hr><hr><hr>
-
-</div>
-
-</body>
-
+  </body>
 </div>

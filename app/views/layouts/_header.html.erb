@@ -1,8 +1,10 @@
 <head>
-
-  <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top text-uppercase" id="mainNav">
       <%= link_to "Gigs", root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item py-3 px-0 px-lg-3">
@@ -18,7 +20,8 @@
           <% if user_signed_in? %>
             <li class="nav-item">
               <div class="dropdown">
-                <button class="btn2 dropdown-toggle btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn2 dropdown-toggle btn-lg" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   My Account
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -45,7 +48,8 @@
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item"
-                      <%= link_to 'Login', new_user_session_path, class: "nav-item nav-link" %>              </a>
+                      <%= link_to 'Login', new_user_session_path, class: "nav-item nav-link" %>
+                    </a>
                     <a class="dropdown-item"
                       <%= link_to 'Sign up', new_user_registration_path, class: "nav-item nav-link" %>
                     </a>
@@ -55,6 +59,5 @@
           <% end %>
         </ul>
       </div>
-    </div>
   </nav>
 </head>
