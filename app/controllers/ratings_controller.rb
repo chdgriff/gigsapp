@@ -1,4 +1,8 @@
 class RatingsController < ApplicationController
+  def new
+    @rating = Rating.new
+  end
+
   def create
     @user = User.find(params[:user_id])
     @rating = @user.ratings.create(rating_params)
@@ -6,8 +10,7 @@ class RatingsController < ApplicationController
     if @rating.save
       redirect_to @user
     else
-      flash[:warning] = "Did not save rating"
-      redirect_to @user
+      render "new"
     end
   end
 
