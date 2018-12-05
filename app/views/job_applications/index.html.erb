@@ -24,6 +24,7 @@
                   <th scope="col"><h3>Description</h3></th>
                   <th scope="col"><h3>Offered Rate</h3></th>
                   <th scope="col"><h3>Requested Rate</h3></th>
+                  <th scop="col"><h3>Status</h3></th>
                   <th></th>
                 </tr>
               </thead>
@@ -40,6 +41,17 @@
                         <td><h5><%= post.description %></h5></td>
                         <td><h5>$<%= post.rate %></h5></td>
                         <td><h5>$<%= job_application.ask_rate %></h5></td>
+                        <td><h5>
+                          <% if job_application.accepted.present? %>
+                            <% if job_application.accepted? %>
+                              Accepted
+                            <% else %>
+                              Declined
+                            <% end %>
+                          <% else %>
+                            Pending
+                          <% end %>
+                        </h5></td>
 
                         <td><%= link_to 'Edit', edit_job_application_path(job_application, :postid => job_application.post_id), class: "btn btn-primary" %>
                         <%= link_to 'Go to Post', post_path(job_application.post_id), class: "btn btn-info" %>
