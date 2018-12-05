@@ -39,8 +39,8 @@
                     <td>$<%= job_application.ask_rate %></td>
 
                     <td>
-                    <%= link_to 'Accept', post_path(@post), class: "btn btn-success" %>
-                    <%= link_to 'Decline', post_path(@post), class: "btn btn-danger" %>
+                    <%= link_to 'Accept', update_accepted_job_application_path(attr: true, id: job_application.id), method: :patch, class: "btn btn-success" %>
+                    <%= link_to 'Decline', update_accepted_job_application_path(attr: true, id: job_application.id), method: :patch, class: "btn btn-danger" %>
                     </td>
 
                   </tr>
