@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :job_applications
+  resources :job_applications do
+    member do
+      patch "update_accepted"
+    end
+  end
+
   devise_for :users, :controllers => {registrations: "users/registrations"}
 
   resources :users do

@@ -25,8 +25,7 @@
 /yarn-error.log
 
 # Ignore uploaded pictures
-/public/posts/assets
-/public/users/
+
 
 .byebug_history
 

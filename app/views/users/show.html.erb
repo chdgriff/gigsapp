@@ -10,17 +10,9 @@
       <div class="jumbotron">
         <h1 class="font-weight-bold text-center" style="margin-bottom:20px;">Profile</h1>
         <div class="row">
-          <div class="col-lg-4" style="margin-right: 40px;">
-	           <div class="row">
-              <% if  @user.profile_image.blank? %>
-              <%= image_tag"default_profile.png" %>
-              <% else %>
-              <%= image_tag @user.profile_image.url(:medium)%>
-              <% end %>
-            </div>
-          </div>
-          <div class="col-lg-6" style="text-align: left;">
-            <h4 style="margin-top: 20px;margin-bottom: 10px;color: black"><%= @user.first_name%> <%= @user.last_name %></h4>
+
+          <div class="col-lg-5" style="text-align: left; margin-left: 200px;">
+            <h3 style="margin-top: 20px;margin-bottom: 10px;color: black"><%= @user.first_name%> <%= @user.last_name %></h3>
             <%= image_tag("baseline_location_on_black_18dp.png", :alt => "profile") %> <%= @user.city %>, <%= @user.state %>
             <h5 style="margin-top: 10px">Rating:
               <% if @user.rating_avg.present? %>
@@ -33,8 +25,39 @@
             <% else %>
               <small>no ratings</small></h5>
             <% end %>
+            <priv>
+              <% if user_signed_in? %>
+                <% if current_user.id == @user.id  %>
+                  <br><br>
+                  <h2 class="row">Private Data</h2>
+                  <div class="row">
+                    <strong><h4>Address:&nbsp;</h4></strong>
+                    <%= @user.address %>, <%= @user.city %>, <%= @user.state %> <%= @user.zip %>
+                  </div>
+                  <div class="row">
+                    <%= image_tag("outline_mail_outline_black_18dp.png", :alt => "profile")%>
+                    &nbsp;
+                    <%= @user.email %>
+                  </div>
+                <%end%>
+              <%end%>
+            </priv>
+          </div>
+
+          <div class="col-lg-4" style="margin-right: 40px;">
+             <div class="row">
+              <% if  @user.profile_image.blank? %>
+              <%= image_tag"default_profile.png" %>
+              <% else %>
+              <%= image_tag @user.profile_image.url(:medium)%>
+              <% end %>
+            </div>
           </div>
         </div>
+
+
+
+
         <% if !(@user.linkedin.blank?) %>
           <div class="row" style="margin-top: 60px;">
             <%= link_to(image_tag("linkedin.png", :alt => "linkedin"), @user.linkedin) %>
@@ -46,39 +69,21 @@
             <b><%= @user.bio %></b>
         </div>
 
-        <priv>
-          <% if user_signed_in? %>
-            <% if current_user.id == @user.id  %>
-              <br><br>
-              <h4 class="row">Private Data</h4>
-              <div class="row">
-                <strong>Address:&nbsp;</strong>
-                <%= @user.address %>, <%= @user.city %>, <%= @user.state %> <%= @user.zip %>
-              </div>
-              <div class="row">
-                <%= image_tag("outline_mail_outline_black_18dp.png", :alt => "profile")%>
-                &nbsp;
-                <%= @user.email %>
-              </div>
-            <%end%>
-          <%end%>
-        </priv>
-
         <br><br><hr class="row">
         <table class="table table-striped">
           <thead class="row">
-            <td>Other posts from <%= @user.first_name + " " + @user.last_name %></td>
+            <h2>Other posts from <%= @user.first_name + " " + @user.last_name %></h2>
           </thead>
           <tbody>
             <% @posts.each do |post| %>
               <%if @user.id == post.user_id %>
                 <tr class="row">
                   <td class="col-1"><%= image_tag post.asset.url(:thumb), class: "img-thumbnail" %></td>
-                  <td class="col-2"><%= post.title %></td>
-                  <td class="col"><%= post.description %></td>
-                  <td class="col-2"><%= post.location %></td>
-                  <td class="col-1"><%= post.rate %></td>
-                  <td class="col-1"><%= link_to 'View', post, class: "btn btn-info" %></td>
+                  <td class="col-2"><h4><%= post.title %></h4></td>
+                  <td class="col"><h4><%= post.description %></h4></td>
+                  <td class="col-2"><h4><%= post.location %></h4></td>
+                  <td class="col-1"><h4><%= post.rate %></h4></td>
+                  <td class="col-1"><%= link_to 'View', post, class: "btn btn-success" %></td>
                 </tr>
               <%end%>
             <%end%>

@@ -74,6 +74,13 @@ class JobApplicationsController < ApplicationController
     end
   end
 
+  def update_accepted
+    @job_application = JobApplication.find(params[:id])
+    @job_application.update_attribute(:accepted, params[:attr])
+    @post = Post.find(@job_application.post_id)
+    redirect_to(@post)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job_application
